@@ -1,7 +1,22 @@
 <html>
 	<body>
-		{{form_start(form)}}
-		{{form_widget(form)}}
-		{{form_end(form)}}
+		{% if erreurCo is defined %}
+			{{ erreurCo }}
+		{% endif %}
+
+		{{form_start(connexion)}}
+		{{form_widget(connexion)}}
+		{{form_end(connexion)}}
+
+		{% if erreurIns is defined %}
+			{{ erreurIns }}
+		{% endif %}
+		{% if reussiIns is defined %}
+			{{ reussiIns }}
+		{% endif %}
+
+		{{form_start(inscription)}}
+		{{form_widget(inscription)}}
+		{{form_end(inscription)}}
 	</body>
 </html>

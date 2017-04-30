@@ -9,43 +9,131 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use PW\MyBundle\Entity\Joueur;
 
 
 class DefaultController extends Controller{
+
+    private $session;
+    private $repository;
+    private $em;
+
     /**
-     * @Route("/")
+     * @Route("/", name="/")
      */
     public function indexAction(Request $request){
-    	$session = $request->getSession();
+        $this->init($request);
     	//Pas connecté 
-    	if(!$session->has('id')){
-            $connexion = $this->createFormConnection();
+    	if(!$this->session->has('id')){
+            $connexion = $this->createFormConnection(array(""));
+            $inscription = $this->createFromInscription(array(""));
+            $array = array();
+            //Si le champs est envoyé
             if(isset($request->request->all()['form'])){
-                //Si le champs est envoyé
                 $champs = $request->request->all()['form'];
-                var_dump($champs['login']);
-                return $this->redirectToRoute('task_success');
+                if(count($champs) == count($inscription)+1){
+                    if($this->inscription($champs) == null){
+                        $array['reussiIns'] = "Inscription Reussie";
+                    }else{
+                        $inscription = $this->createFromInscription($champs);
+                        $array['erreurIns'] = $this->inscription($champs);
+                    }
+                }
+                if(count($champs) == count($connexion)+1){
+                    if($this->connexion($champs) == null)
+                        return $this->render('PWMyBundle:Default:home.html.twig',
+                        array('pseudo'=>$this->getPseudo()));
+                    $connexion = $this->createFormConnection($champs);
+                    $array['erreurCo'] = $this->connexion($champs);
+                }
             }
+            $array['inscription'] = $inscription->createView();
+            $array['connexion'] = $connexion->createView();
             //Page d'inscription/connexion
-    		return $this->render('PWMyBundle:Default:accueil.html.twig',
-    			array('form' => $connexion->createView()));
-    		
+    		return $this->render('PWMyBundle:Default:accueil.html.twig', $array);
     	}
     	//Connecté -> Page de navigation principale
-    	else{
-    		//$session->clear();
-    		//$session->set('id', '123');
-    		return $this->render('PWMyBundle:Default:home.html.twig',
-    		array('id'=>$session->get('id')));
-    	}
+    	return $this->render('PWMyBundle:Default:home.html.twig',
+    		array('pseudo'=>$this->getPseudo()));
     }
 
-    public function createFormConnection(){
-		$form = $this->createFormBuilder()
-            ->add('login', TextType::class)
+    public function init(Request $request){
+        $this->session = $request->getSession();
+        $this->repository = $this->getDoctrine()->getRepository('PWMyBundle:Joueur');
+        $this->em = $this->getDoctrine()->getManager();
+    }
+
+    public function inscription(Array $champs){
+        if($this->repository->findOneByPseudo($champs['pseudo']))
+            return "Le pseudo ".$champs['pseudo']." est deja prit";
+        if($this->repository->findOneByLogin($champs['login']))
+            return "Le login ".$champs['login']." est deja prit";
+        else{
+            $joueur = new Joueur();
+            $joueur->setLogin($champs['login']);
+            $joueur->setPseudo($champs['pseudo']);
+            $joueur->setMdp(md5($champs['mdp']));
+            $joueur->setAvatar("default");
+            $this->em = $this->getDoctrine()->getManager();
+            $this->em->persist($joueur);
+            $this->em->flush();
+            return null;
+        }
+    }
+
+    public function connexion(Array $champs){
+        $joueur=$this->repository->findOneBy(
+        array('login'=>$champs['login'],'mdp'=>md5($champs['mdp'])));
+        if($joueur!=null){
+            $this->session->set('id', $joueur->getId());
+            return null;
+        }
+        return "Erreur de connexion";
+    }
+
+    public function getPseudo(){
+        return $this->repository->findOneById($this->session->get('id'))->getPseudo();
+    }
+
+
+    //CREATION DE FORMULAIRES
+    public function createFromInscription(Array $champs){
+        $dataPseudo = $this->hydrateChamps($champs, array("pseudo"));
+        $dataLogin = $this->hydrateChamps($champs, array("login"));
+        $dataMdp = $this->hydrateChamps($champs, array("mdp"));
+        $form = $this->createFormBuilder()
+            ->add('pseudo', TextType::class, array('data'=> $dataPseudo))           
+            ->add('login', TextType::class, array('data'=> $dataLogin))
             ->add('mdp', PasswordType::class, array('label' => 'Mot de passe'))
-            ->add('save', SubmitType::class, array('label' => 'Create Post'))
+            ->add('save', SubmitType::class, array('label' => 'Inscription'))
+            ->getForm();
+        return $form;
+
+    }
+ 
+    public function createFormConnection(Array $champs){
+        $dataLogin = $this->hydrateChamps($champs, array("login"));
+        $dataMdp = $this->hydrateChamps($champs, array("mdp"));
+		$form = $this->createFormBuilder()
+            ->add('login', TextType::class, array('data'=>$dataLogin))
+            ->add('mdp', PasswordType::class, array('label' => 'Mot de passe', 'data'=>$dataMdp))
+            ->add('save', SubmitType::class, array('label' => 'Connection'))
             ->getForm();
  		return $form;
+    }
+    
+    public function hydrateChamps(Array $champs, Array $value){
+        if(count($champs)>1)
+            return $champs[$value[0]];
+        return "";
+    }
+
+    /**
+     * @Route("/deconnexion", name="/deconnexion")
+     */
+    public function dexonnexionAction(Request $request){
+        $this->init($request);
+        $this->session->clear();
+        return $this->redirectToRoute("/");
     }
 }
