@@ -95,9 +95,12 @@ class DefaultController extends Controller{
         $dataLogin = $this->hydrateChamps($champs, array("login"));
         $dataMdp = $this->hydrateChamps($champs, array("mdp"));
         $form = $this->createFormBuilder()
-            ->add('pseudo', TextType::class, array('data'=> $dataPseudo))           
-            ->add('login', TextType::class, array('data'=> $dataLogin))
-            ->add('mdp', PasswordType::class, array('label' => 'Mot de passe'))
+            ->add('pseudo', TextType::class, array('data'=> $dataPseudo, 
+                'attr'=>array('maxlength'=>10)))           
+            ->add('login', TextType::class, array('data'=> $dataLogin,
+                'attr'=>array('maxlength'=>10)))
+            ->add('mdp', PasswordType::class, array('label' => 'Mot de passe',
+                'attr'=>array('maxlength'=>10)))
             ->add('save', SubmitType::class, array('label' => 'Inscription'))
             ->getForm();
         return $form;
@@ -129,4 +132,5 @@ class DefaultController extends Controller{
         $this->session->clear();
         return $this->redirectToRoute("/");
     }
+
 }

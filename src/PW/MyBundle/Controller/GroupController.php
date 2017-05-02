@@ -21,12 +21,13 @@ class GroupController extends Controller{
     private $em;
     
     /**
-     * @Route("/group/{ordre}/{sens}",
-     *			defaults={"ordre"="id", "sens"="asc"},
-     *			requirements={"ordre"="exp|id|argent|nom|nbh", "sens"="asc|desc"}, 
+     * @Route("/group/{ordre}/{sens}/{all}",
+     *			defaults={"ordre"="id", "sens"="asc", "all"="false"},
+     *			requirements={"ordre"="exp|id|argent|nom|nbh", 
+     *			"sens"="asc|desc", "all"="true|false"}, 
      *  		name="/group")
      */
-    public function groupAction(Request $request, $ordre, $sens){
+    public function groupAction(Request $request, $ordre, $sens, $all){
     	$this->init($request);
     	if(isset($request->request->all()['form']) ){
     		$filtre = $request->request->all()['form'];
@@ -37,13 +38,20 @@ class GroupController extends Controller{
     	}
     	if($this->session->has("filtre"))
     		$filtre = $this->session->get("filtre");
-    	$mesGroupes = $this->ranger(
-    		$this->getExpGroupNbh(array($this->session->get("id")), $filtre), 
-    		array($ordre, $sens));
+    	if($all == "false"){
+    		$gr = $this->getExpGroupNbh(array($this->session->get("id")), $filtre);
+    		$supprimable = true;
+    	}
+    	else{
+    		$gr = $this->getExpGroupNbh(array(), $filtre);
+    		$supprimable = false;
+    	} 
+    	$groupes = $this->ranger($gr,array($ordre, $sens));
     	$rechercheForm = $this->createFormRecherche($filtre);
     	return $this->render('PWMyBundle:Default:home.html.twig',
         array('pseudo'=>$this->getPseudo(),
-        	'mesGroupes' => $mesGroupes,
+        	'supprimable'=> $supprimable,
+        	'groupes' => $groupes,
         	'rechercheForm' => $rechercheForm->createView(),
         	'form'=>$this->createFormGroup()->createView()));
     }
@@ -74,7 +82,9 @@ class GroupController extends Controller{
 
 
     public function getGroupes(Array $id, Array $filtre){
-    	$groups = $this->repoGroup->findByIdJoueur($this->session->get("id"));
+    	if(count($id) != 0)
+    		$groups = $this->repoGroup->findByIdJoueur($id[0]);
+    	else $groups = $this->repoGroup->findAll();
     	if(count($filtre) != 0){
     		$expMin = trim($filtre['expMin']);
     		$expMax = trim($filtre['expMax']);
@@ -128,7 +138,7 @@ class GroupController extends Controller{
 
     public function createFormGroup(){
 		$form = $this->createFormBuilder()
-            ->add('nom', TextType::class)
+            ->add('nom', TextType::class, array('attr'=>array('maxlength'=>10)))
             ->setAction($this->generateUrl('/createGroup'))
             ->add('save', SubmitType::class, array('label' => 'creation groupe'))
             ->getForm();
@@ -259,5 +269,17 @@ class GroupController extends Controller{
     	return $this->redirectToRoute("/group");
     }
 
+    /**
+     * @Route("/supprimerGrp/{idGroupe}", name="/supprimerGrp")
+     */
+    public function deleteGroupe(Request $request, $idGroupe){
+        $this->init($request);
+        $this->em->remove($this->repoGroup->findOneById($idGroupe));
+        $hommes = $this->repoHomme->findByIdGroupe($idGroupe);
+        for($i=0; $i<count($hommes); $i++)
+        	$this->em->remove($hommes[$i]);
+		$this->em->flush();
+        return $this->redirectToRoute("/group");
+    }
 
 }

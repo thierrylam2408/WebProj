@@ -2,45 +2,56 @@
 	<body>
 		Hello! {{pseudo}}
 		<a href="{{ url('/deconnexion') }}">Deconnexion</a>
-
+		<a href="{{ path('/group') }}">Mes groupes</a>
+		<a href="{{ path('/group', {'all':'true'}) }}">Tous les groupes</a>
 		{{form_start(rechercheForm)}}
 		{{form_widget(rechercheForm)}}
 		{{form_end(rechercheForm)}}
 
-		{% if mesGroupes is defined %}
+		{% if groupes is defined %}
 			<table>
+			{% set all = (app.request.attributes.get('all') ) %}
 			<tr> 
-			<th><a href="{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}">-</a>
+			<th><a href="{{path('/group',{'ordre':'exp','sens':'desc','all':all})}}">-</a>
 				Experience
-				<a href="{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}">+</a>
+				<a href="{{path('/group',{'ordre':'exp','sens':'asc','all':all})}}">+</a>
 			</th> 
-			<th><a href="{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}">-</a>
+			<th><a href="{{path('/group',{'ordre':'nom','sens':'desc','all':all})}}">-</a>
 			Nom
-			<a href="{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}">+</a>
+			<a href="{{path('/group',{'ordre':'nom','sens':'asc','all':all})}}">+</a>
 			</th>
-			<th><a href="{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}">-</a>
+			<th><a href="{{path('/group',{'ordre':'argent','sens':'desc','all':all})}}">-</a>
 			Argent
-			<a href="{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}">+</a>
+			<a href="{{path('/group',{'ordre':'argent','sens':'asc','all':all})}}">+</a>
 			</th>
-			<th><a href="{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}">-</a>
+			<th><a href="{{path('/group',{'ordre':'nbh', 'sens':'desc','all':all})}}">-</a>
 			Homme
-			<a href="{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}">+</a>
+			<a href="{{path('/group',{'ordre':'nbh','sens':'asc','all':all})}}">+</a>
 			</th>
 			</tr>
-			{% for couple in mesGroupes %}
+			{% for couple in groupes %}
 				<tr>
 				<th> {{ couple[0] }} </th>
-				<th> {{ couple[1].getNomGroupe()}} </th>
+				<th><a href="{{ path('/homme', {'idGroupe':couple[1].getId() }) }}"> 
+					{{ couple[1].getNomGroupe()}} </a></th>
 				<th> {{ couple[1].getArgent()}} </th> 
 				<th> {{ couple[2]}} </th>
+				{% if supprimable is defined and supprimable == true %}
+				<th>
+				<a href="{{ path('/supprimerGrp', {'idGroupe':couple[1].getId() }) }}">
+				Supprimer</a>
+				</th>
+				{% endif %}
 				</tr>
 			{% endfor %}
 			</table>
 		{% endif %}
 
+		{% if all == 'false' %}
 		{{form_start(form)}}
 		{{form_widget(form)}}
 		{{form_end(form)}}
+		{% endif %}
 		
 
 		
