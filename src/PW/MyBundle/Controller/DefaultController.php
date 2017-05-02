@@ -41,8 +41,7 @@ class DefaultController extends Controller{
                 }
                 if(count($champs) == count($connexion)+1){
                     if($this->connexion($champs) == null)
-                        return $this->render('PWMyBundle:Default:home.html.twig',
-                        array('pseudo'=>$this->getPseudo()));
+                        return $this->redirectToRoute("/group");
                     $connexion = $this->createFormConnection($champs);
                     $array['erreurCo'] = $this->connexion($champs);
                 }
@@ -53,8 +52,7 @@ class DefaultController extends Controller{
     		return $this->render('PWMyBundle:Default:accueil.html.twig', $array);
     	}
     	//Connecté -> Page de navigation principale
-    	return $this->render('PWMyBundle:Default:home.html.twig',
-    		array('pseudo'=>$this->getPseudo()));
+    	return $this->redirectToRoute("/group");
     }
 
     public function init(Request $request){
@@ -74,7 +72,6 @@ class DefaultController extends Controller{
             $joueur->setPseudo($champs['pseudo']);
             $joueur->setMdp(md5($champs['mdp']));
             $joueur->setAvatar("default");
-            $this->em = $this->getDoctrine()->getManager();
             $this->em->persist($joueur);
             $this->em->flush();
             return null;
@@ -89,10 +86,6 @@ class DefaultController extends Controller{
             return null;
         }
         return "Erreur de connexion";
-    }
-
-    public function getPseudo(){
-        return $this->repository->findOneById($this->session->get('id'))->getPseudo();
     }
 
 
@@ -131,7 +124,7 @@ class DefaultController extends Controller{
     /**
      * @Route("/deconnexion", name="/deconnexion")
      */
-    public function dexonnexionAction(Request $request){
+    public function deconnexionAction(Request $request){
         $this->init($request);
         $this->session->clear();
         return $this->redirectToRoute("/");
