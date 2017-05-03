@@ -17,16 +17,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Home</a></li>
                 <li class="active"><a href="{{ path('/group') }}">Mes groupes</a></li>
-                <li><a href="{{ path('/group', {'all':'true'}) }}">Tous les groupes</a></li>
-                <li><a href="{{ url('/deconnexion') }}">Deconnexion</a></li>
-                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">DropDown
-                    <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Link 2</a></li>
-                    </ul>
-                 </li>              
+                <li><a href="{{ path('/group', {'all':'true'}) }}">Tous les groupes</a></li>            
              </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -55,14 +46,14 @@
                         </li>
                         <li class="divider navbar-login-session-bg"></li>
                          <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            <li class="divider"></li>
-            <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-            <li class="divider"></li>
-            <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
-            <li class="divider"></li>
-            <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-            <li class="divider"></li>
-            <li><a href="{{ url('/deconnexion') }}">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ url('/deconnexion') }}">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -72,42 +63,47 @@
 {% endblock %}
 
 {% block body %}
-    {{form_start(rechercheForm)}}
-        {{form_widget(rechercheForm)}}
-        {{form_end(rechercheForm)}}
+    <div class = "container">
+        <div class="jumbotron">
+            {{form_start(rechercheForm)}}
+            {{form_widget(rechercheForm)}}
+            {{form_end(rechercheForm)}}
 
-        {% if mesGroupes is defined %}
-            <table>
-            <tr> 
-            <th><a href="{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}">-</a>
-                Experience
-                <a href="{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}">+</a>
-            </th> 
-            <th><a href="{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}">-</a>
-            Nom
-            <a href="{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}">+</a>
-            </th>
-            <th><a href="{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}">-</a>
-            Argent
-            <a href="{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}">+</a>
-            </th>
-            <th><a href="{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}">-</a>
-            Homme
-            <a href="{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}">+</a>
-            </th>
-            </tr>
-            {% for couple in mesGroupes %}
-                <tr>
-                <th> {{ couple[0] }} </th>
-                <th> {{ couple[1].getNomGroupe()}} </th>
-                <th> {{ couple[1].getArgent()}} </th> 
-                <th> {{ couple[2]}} </th>
+            {% if mesGroupes is defined %}
+                <table>
+                <tr> 
+                <th><a href="{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}">-</a>
+                    Experience
+                    <a href="{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}">+</a>
+                </th> 
+                <th><a href="{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}">-</a>
+                Nom
+                <a href="{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}">+</a>
+                </th>
+                <th><a href="{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}">-</a>
+                Argent
+                <a href="{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}">+</a>
+                </th>
+                <th><a href="{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}">-</a>
+                Homme
+                <a href="{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}">+</a>
+                </th>
                 </tr>
-            {% endfor %}
-            </table>
-        {% endif %}
+                {% for couple in mesGroupes %}
+                    <tr>
+                    <th> {{ couple[0] }} </th>
+                    <th> {{ couple[1].getNomGroupe()}} </th>
+                    <th> {{ couple[1].getArgent()}} </th> 
+                    <th> {{ couple[2]}} </th>
+                    </tr>
+                {% endfor %}
+                </table>
+            {% endif %}
 
-        {{form_start(form)}}
-        {{form_widget(form)}}
-        {{form_end(form)}}
+            {{form_start(form)}}
+            {{form_widget(form)}}
+            {{form_end(form)}}
+        </div>
+    </div>
+    
 {% endblock %}

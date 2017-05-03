@@ -23,49 +23,49 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_82e7b5a555029df1d4abb4bbdbdd712cfe9870872bb0918122134f9ce4f7e02e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_82e7b5a555029df1d4abb4bbdbdd712cfe9870872bb0918122134f9ce4f7e02e->enter($__internal_82e7b5a555029df1d4abb4bbdbdd712cfe9870872bb0918122134f9ce4f7e02e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:home.html.twig"));
+        $__internal_5ab193ddffd1dd016bbf3190e1514ac45b6ce618b597c273db90bae2a0c59034 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5ab193ddffd1dd016bbf3190e1514ac45b6ce618b597c273db90bae2a0c59034->enter($__internal_5ab193ddffd1dd016bbf3190e1514ac45b6ce618b597c273db90bae2a0c59034_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:home.html.twig"));
 
-        $__internal_7f0b80970304e1bc52150e46644e67931c4935719c5d11039d20a741711cfe4f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7f0b80970304e1bc52150e46644e67931c4935719c5d11039d20a741711cfe4f->enter($__internal_7f0b80970304e1bc52150e46644e67931c4935719c5d11039d20a741711cfe4f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:home.html.twig"));
+        $__internal_8778e94a24c5b779b7800e01cad5c8a06f373037e5a45b0ecee4ab7226613dd4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8778e94a24c5b779b7800e01cad5c8a06f373037e5a45b0ecee4ab7226613dd4->enter($__internal_8778e94a24c5b779b7800e01cad5c8a06f373037e5a45b0ecee4ab7226613dd4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:home.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_82e7b5a555029df1d4abb4bbdbdd712cfe9870872bb0918122134f9ce4f7e02e->leave($__internal_82e7b5a555029df1d4abb4bbdbdd712cfe9870872bb0918122134f9ce4f7e02e_prof);
+        $__internal_5ab193ddffd1dd016bbf3190e1514ac45b6ce618b597c273db90bae2a0c59034->leave($__internal_5ab193ddffd1dd016bbf3190e1514ac45b6ce618b597c273db90bae2a0c59034_prof);
 
         
-        $__internal_7f0b80970304e1bc52150e46644e67931c4935719c5d11039d20a741711cfe4f->leave($__internal_7f0b80970304e1bc52150e46644e67931c4935719c5d11039d20a741711cfe4f_prof);
+        $__internal_8778e94a24c5b779b7800e01cad5c8a06f373037e5a45b0ecee4ab7226613dd4->leave($__internal_8778e94a24c5b779b7800e01cad5c8a06f373037e5a45b0ecee4ab7226613dd4_prof);
 
     }
 
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        $__internal_28754cbe35a699bad76ab6b9e9013985274dff322844937e93f407e4555d817e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_28754cbe35a699bad76ab6b9e9013985274dff322844937e93f407e4555d817e->enter($__internal_28754cbe35a699bad76ab6b9e9013985274dff322844937e93f407e4555d817e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_bee953ff0eb0f4c3c934a828dab65b1eea2c0ffef22aafcb11bc933dfdaf6b82 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_bee953ff0eb0f4c3c934a828dab65b1eea2c0ffef22aafcb11bc933dfdaf6b82->enter($__internal_bee953ff0eb0f4c3c934a828dab65b1eea2c0ffef22aafcb11bc933dfdaf6b82_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_3539c416b058c97910573439e2eb4fbfe387096da44f33172363c5040e760873 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3539c416b058c97910573439e2eb4fbfe387096da44f33172363c5040e760873->enter($__internal_3539c416b058c97910573439e2eb4fbfe387096da44f33172363c5040e760873_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_72177a02dca5d90785232371054ef32345be63d4f2ef27e07ebe45b016e5153e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_72177a02dca5d90785232371054ef32345be63d4f2ef27e07ebe45b016e5153e->enter($__internal_72177a02dca5d90785232371054ef32345be63d4f2ef27e07ebe45b016e5153e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 3
         echo "    Home
 ";
         
-        $__internal_3539c416b058c97910573439e2eb4fbfe387096da44f33172363c5040e760873->leave($__internal_3539c416b058c97910573439e2eb4fbfe387096da44f33172363c5040e760873_prof);
+        $__internal_72177a02dca5d90785232371054ef32345be63d4f2ef27e07ebe45b016e5153e->leave($__internal_72177a02dca5d90785232371054ef32345be63d4f2ef27e07ebe45b016e5153e_prof);
 
         
-        $__internal_28754cbe35a699bad76ab6b9e9013985274dff322844937e93f407e4555d817e->leave($__internal_28754cbe35a699bad76ab6b9e9013985274dff322844937e93f407e4555d817e_prof);
+        $__internal_bee953ff0eb0f4c3c934a828dab65b1eea2c0ffef22aafcb11bc933dfdaf6b82->leave($__internal_bee953ff0eb0f4c3c934a828dab65b1eea2c0ffef22aafcb11bc933dfdaf6b82_prof);
 
     }
 
     // line 5
     public function block_nav($context, array $blocks = array())
     {
-        $__internal_91cca6a6c2d5cc69ca356794430ac58e31cc1564c7065931541ce9a5aaf64e22 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_91cca6a6c2d5cc69ca356794430ac58e31cc1564c7065931541ce9a5aaf64e22->enter($__internal_91cca6a6c2d5cc69ca356794430ac58e31cc1564c7065931541ce9a5aaf64e22_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
+        $__internal_0c79f27978e0a24fa49ea1407b99b7cd90e15b41557de5053054d33f5bcc7ff0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0c79f27978e0a24fa49ea1407b99b7cd90e15b41557de5053054d33f5bcc7ff0->enter($__internal_0c79f27978e0a24fa49ea1407b99b7cd90e15b41557de5053054d33f5bcc7ff0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
 
-        $__internal_c5bef6791f12b65ed91cf6e28c76661070305bc423bb88e80c3ef75b2f7a71ec = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c5bef6791f12b65ed91cf6e28c76661070305bc423bb88e80c3ef75b2f7a71ec->enter($__internal_c5bef6791f12b65ed91cf6e28c76661070305bc423bb88e80c3ef75b2f7a71ec_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
+        $__internal_749a3da19ecf9d0db22635c4500f40996f963e5d57a9f140c81ed3b1cf1636f7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_749a3da19ecf9d0db22635c4500f40996f963e5d57a9f140c81ed3b1cf1636f7->enter($__internal_749a3da19ecf9d0db22635c4500f40996f963e5d57a9f140c81ed3b1cf1636f7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
 
         // line 6
         echo "  <div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">
@@ -88,26 +88,14 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
                 <li><a href=\"";
         // line 20
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("all" => "true"));
-        echo "\">Tous les groupes</a></li>
-                <li><a href=\"";
-        // line 21
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getUrl("/deconnexion");
-        echo "\">Deconnexion</a></li>
-                 <li class=\"dropdown\">
-                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">DropDown
-                    <span class=\"caret\"></span>
-                    </a>
-                    <ul class=\"dropdown-menu\">
-                        <li><a href=\"#\">Link 2</a></li>
-                    </ul>
-                 </li>              
+        echo "\">Tous les groupes</a></li>            
              </ul>
             <ul class=\"nav navbar-nav navbar-right\">
                 <li class=\"dropdown\">
                     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                         <span class=\"glyphicon glyphicon-user\"></span>
                         <strong>";
-        // line 35
+        // line 26
         echo twig_escape_filter($this->env, (isset($context["pseudo"]) ? $context["pseudo"] : $this->getContext($context, "pseudo")), "html", null, true);
         echo "</strong>
                         <span class=\"glyphicon glyphicon-chevron-down\"></span>
@@ -123,7 +111,7 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
                                     </div>
                                     <div class=\"col-lg-8\">
                                         <p class=\"text-left\"><strong>";
-        // line 48
+        // line 39
         echo twig_escape_filter($this->env, (isset($context["pseudo"]) ? $context["pseudo"] : $this->getContext($context, "pseudo")), "html", null, true);
         echo "</strong></p>
                                         <p class=\"text-left\">
@@ -135,15 +123,15 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
                         </li>
                         <li class=\"divider navbar-login-session-bg\"></li>
                          <li><a href=\"#\">Account Settings <span class=\"glyphicon glyphicon-cog pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">User stats <span class=\"glyphicon glyphicon-stats pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">Messages <span class=\"badge pull-right\"> 42 </span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">Favourites Snippets <span class=\"glyphicon glyphicon-heart pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"";
-        // line 65
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">User stats <span class=\"glyphicon glyphicon-stats pull-right\"></span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">Messages <span class=\"badge pull-right\"> 42 </span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">Favourites Snippets <span class=\"glyphicon glyphicon-heart pull-right\"></span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"";
+        // line 56
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getUrl("/deconnexion");
         echo "\">Sign Out <span class=\"glyphicon glyphicon-log-out pull-right\"></span></a></li>
                     </ul>
@@ -154,135 +142,141 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
 </div>
 ";
         
-        $__internal_c5bef6791f12b65ed91cf6e28c76661070305bc423bb88e80c3ef75b2f7a71ec->leave($__internal_c5bef6791f12b65ed91cf6e28c76661070305bc423bb88e80c3ef75b2f7a71ec_prof);
+        $__internal_749a3da19ecf9d0db22635c4500f40996f963e5d57a9f140c81ed3b1cf1636f7->leave($__internal_749a3da19ecf9d0db22635c4500f40996f963e5d57a9f140c81ed3b1cf1636f7_prof);
 
         
-        $__internal_91cca6a6c2d5cc69ca356794430ac58e31cc1564c7065931541ce9a5aaf64e22->leave($__internal_91cca6a6c2d5cc69ca356794430ac58e31cc1564c7065931541ce9a5aaf64e22_prof);
+        $__internal_0c79f27978e0a24fa49ea1407b99b7cd90e15b41557de5053054d33f5bcc7ff0->leave($__internal_0c79f27978e0a24fa49ea1407b99b7cd90e15b41557de5053054d33f5bcc7ff0_prof);
 
     }
 
-    // line 74
+    // line 65
     public function block_body($context, array $blocks = array())
     {
-        $__internal_22cbe81e2ff99e29bffdc81b572199850955b3b557fe3479303b7943cb813420 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_22cbe81e2ff99e29bffdc81b572199850955b3b557fe3479303b7943cb813420->enter($__internal_22cbe81e2ff99e29bffdc81b572199850955b3b557fe3479303b7943cb813420_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_ac9e1182567d43f95ff5d185edf520cfb174790723adf9b8409ed63b3f76af66 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_ac9e1182567d43f95ff5d185edf520cfb174790723adf9b8409ed63b3f76af66->enter($__internal_ac9e1182567d43f95ff5d185edf520cfb174790723adf9b8409ed63b3f76af66_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_43247a5860172ce1cdef38f612dc8ec1c0094bcee49f8af5d1402bc14804eb07 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_43247a5860172ce1cdef38f612dc8ec1c0094bcee49f8af5d1402bc14804eb07->enter($__internal_43247a5860172ce1cdef38f612dc8ec1c0094bcee49f8af5d1402bc14804eb07_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_9cd94f472c58f625bcbc992b09a754b309be6ed566ed64f5fc7106be84c8c7e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9cd94f472c58f625bcbc992b09a754b309be6ed566ed64f5fc7106be84c8c7e1->enter($__internal_9cd94f472c58f625bcbc992b09a754b309be6ed566ed64f5fc7106be84c8c7e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 75
-        echo "    ";
+        // line 66
+        echo "    <div class = \"container\">
+        <div class=\"jumbotron\">
+            ";
+        // line 68
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'form_start');
         echo "
-        ";
-        // line 76
+            ";
+        // line 69
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'widget');
         echo "
-        ";
-        // line 77
+            ";
+        // line 70
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'form_end');
         echo "
 
-        ";
-        // line 79
+            ";
+        // line 72
         if (array_key_exists("mesGroupes", $context)) {
-            // line 80
-            echo "            <table>
-            <tr> 
-            <th><a href=\"";
-            // line 82
+            // line 73
+            echo "                <table>
+                <tr> 
+                <th><a href=\"";
+            // line 75
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "exp", "sens" => "desc")), "html", null, true);
             echo "\">-</a>
-                Experience
-                <a href=\"";
-            // line 84
+                    Experience
+                    <a href=\"";
+            // line 77
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "exp", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th> 
-            <th><a href=\"";
-            // line 86
+                </th> 
+                <th><a href=\"";
+            // line 79
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "nom", "sens" => "desc")), "html", null, true);
             echo "\">-</a>
-            Nom
-            <a href=\"";
-            // line 88
+                Nom
+                <a href=\"";
+            // line 81
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "nom", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th>
-            <th><a href=\"";
-            // line 90
+                </th>
+                <th><a href=\"";
+            // line 83
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "argent", "sens" => "desc")), "html", null, true);
             echo "\">-</a>
-            Argent
-            <a href=\"";
-            // line 92
+                Argent
+                <a href=\"";
+            // line 85
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "argent", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th>
-            <th><a href=\"";
-            // line 94
+                </th>
+                <th><a href=\"";
+            // line 87
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "nbh", "sens" => "desc")), "html", null, true);
             echo "\">-</a>
-            Homme
-            <a href=\"";
-            // line 96
+                Homme
+                <a href=\"";
+            // line 89
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("ordre" => "nbh", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th>
-            </tr>
-            ";
-            // line 99
+                </th>
+                </tr>
+                ";
+            // line 92
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["mesGroupes"]) ? $context["mesGroupes"] : $this->getContext($context, "mesGroupes")));
             foreach ($context['_seq'] as $context["_key"] => $context["couple"]) {
-                // line 100
-                echo "                <tr>
-                <th> ";
-                // line 101
+                // line 93
+                echo "                    <tr>
+                    <th> ";
+                // line 94
                 echo twig_escape_filter($this->env, $this->getAttribute($context["couple"], 0, array(), "array"), "html", null, true);
                 echo " </th>
-                <th> ";
-                // line 102
+                    <th> ";
+                // line 95
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["couple"], 1, array(), "array"), "getNomGroupe", array(), "method"), "html", null, true);
                 echo " </th>
-                <th> ";
-                // line 103
+                    <th> ";
+                // line 96
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["couple"], 1, array(), "array"), "getArgent", array(), "method"), "html", null, true);
                 echo " </th> 
-                <th> ";
-                // line 104
+                    <th> ";
+                // line 97
                 echo twig_escape_filter($this->env, $this->getAttribute($context["couple"], 2, array(), "array"), "html", null, true);
                 echo " </th>
-                </tr>
-            ";
+                    </tr>
+                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['couple'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 107
-            echo "            </table>
-        ";
+            // line 100
+            echo "                </table>
+            ";
         }
-        // line 109
+        // line 102
         echo "
-        ";
-        // line 110
+            ";
+        // line 103
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
-        ";
-        // line 111
+            ";
+        // line 104
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
-        ";
-        // line 112
+            ";
+        // line 105
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
+        </div>
+    </div>
+    
 ";
         
-        $__internal_43247a5860172ce1cdef38f612dc8ec1c0094bcee49f8af5d1402bc14804eb07->leave($__internal_43247a5860172ce1cdef38f612dc8ec1c0094bcee49f8af5d1402bc14804eb07_prof);
+        $__internal_9cd94f472c58f625bcbc992b09a754b309be6ed566ed64f5fc7106be84c8c7e1->leave($__internal_9cd94f472c58f625bcbc992b09a754b309be6ed566ed64f5fc7106be84c8c7e1_prof);
 
         
-        $__internal_22cbe81e2ff99e29bffdc81b572199850955b3b557fe3479303b7943cb813420->leave($__internal_22cbe81e2ff99e29bffdc81b572199850955b3b557fe3479303b7943cb813420_prof);
+        $__internal_ac9e1182567d43f95ff5d185edf520cfb174790723adf9b8409ed63b3f76af66->leave($__internal_ac9e1182567d43f95ff5d185edf520cfb174790723adf9b8409ed63b3f76af66_prof);
 
     }
 
@@ -298,7 +292,7 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
 
     public function getDebugInfo()
     {
-        return array (  278 => 112,  274 => 111,  270 => 110,  267 => 109,  263 => 107,  254 => 104,  250 => 103,  246 => 102,  242 => 101,  239 => 100,  235 => 99,  229 => 96,  224 => 94,  219 => 92,  214 => 90,  209 => 88,  204 => 86,  199 => 84,  194 => 82,  190 => 80,  188 => 79,  183 => 77,  179 => 76,  174 => 75,  165 => 74,  147 => 65,  127 => 48,  111 => 35,  94 => 21,  90 => 20,  86 => 19,  71 => 6,  62 => 5,  51 => 3,  42 => 2,  11 => 1,);
+        return array (  269 => 105,  265 => 104,  261 => 103,  258 => 102,  254 => 100,  245 => 97,  241 => 96,  237 => 95,  233 => 94,  230 => 93,  226 => 92,  220 => 89,  215 => 87,  210 => 85,  205 => 83,  200 => 81,  195 => 79,  190 => 77,  185 => 75,  181 => 73,  179 => 72,  174 => 70,  170 => 69,  166 => 68,  162 => 66,  153 => 65,  135 => 56,  115 => 39,  99 => 26,  90 => 20,  86 => 19,  71 => 6,  62 => 5,  51 => 3,  42 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -330,16 +324,7 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
             <ul class=\"nav navbar-nav\">
                 <li><a href=\"#\">Home</a></li>
                 <li class=\"active\"><a href=\"{{ path('/group') }}\">Mes groupes</a></li>
-                <li><a href=\"{{ path('/group', {'all':'true'}) }}\">Tous les groupes</a></li>
-                <li><a href=\"{{ url('/deconnexion') }}\">Deconnexion</a></li>
-                 <li class=\"dropdown\">
-                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">DropDown
-                    <span class=\"caret\"></span>
-                    </a>
-                    <ul class=\"dropdown-menu\">
-                        <li><a href=\"#\">Link 2</a></li>
-                    </ul>
-                 </li>              
+                <li><a href=\"{{ path('/group', {'all':'true'}) }}\">Tous les groupes</a></li>            
              </ul>
             <ul class=\"nav navbar-nav navbar-right\">
                 <li class=\"dropdown\">
@@ -368,14 +353,14 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
                         </li>
                         <li class=\"divider navbar-login-session-bg\"></li>
                          <li><a href=\"#\">Account Settings <span class=\"glyphicon glyphicon-cog pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">User stats <span class=\"glyphicon glyphicon-stats pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">Messages <span class=\"badge pull-right\"> 42 </span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\">Favourites Snippets <span class=\"glyphicon glyphicon-heart pull-right\"></span></a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"{{ url('/deconnexion') }}\">Sign Out <span class=\"glyphicon glyphicon-log-out pull-right\"></span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">User stats <span class=\"glyphicon glyphicon-stats pull-right\"></span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">Messages <span class=\"badge pull-right\"> 42 </span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">Favourites Snippets <span class=\"glyphicon glyphicon-heart pull-right\"></span></a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"{{ url('/deconnexion') }}\">Sign Out <span class=\"glyphicon glyphicon-log-out pull-right\"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -385,44 +370,49 @@ class __TwigTemplate_5e3fd35a394872d2124cce1797a85476662e61ed585fe2bea41c06e3e58
 {% endblock %}
 
 {% block body %}
-    {{form_start(rechercheForm)}}
-        {{form_widget(rechercheForm)}}
-        {{form_end(rechercheForm)}}
+    <div class = \"container\">
+        <div class=\"jumbotron\">
+            {{form_start(rechercheForm)}}
+            {{form_widget(rechercheForm)}}
+            {{form_end(rechercheForm)}}
 
-        {% if mesGroupes is defined %}
-            <table>
-            <tr> 
-            <th><a href=\"{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}\">-</a>
-                Experience
-                <a href=\"{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}\">+</a>
-            </th> 
-            <th><a href=\"{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}\">-</a>
-            Nom
-            <a href=\"{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}\">+</a>
-            </th>
-            <th><a href=\"{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}\">-</a>
-            Argent
-            <a href=\"{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}\">+</a>
-            </th>
-            <th><a href=\"{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}\">-</a>
-            Homme
-            <a href=\"{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}\">+</a>
-            </th>
-            </tr>
-            {% for couple in mesGroupes %}
-                <tr>
-                <th> {{ couple[0] }} </th>
-                <th> {{ couple[1].getNomGroupe()}} </th>
-                <th> {{ couple[1].getArgent()}} </th> 
-                <th> {{ couple[2]}} </th>
+            {% if mesGroupes is defined %}
+                <table>
+                <tr> 
+                <th><a href=\"{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}\">-</a>
+                    Experience
+                    <a href=\"{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}\">+</a>
+                </th> 
+                <th><a href=\"{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}\">-</a>
+                Nom
+                <a href=\"{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}\">+</a>
+                </th>
+                <th><a href=\"{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}\">-</a>
+                Argent
+                <a href=\"{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}\">+</a>
+                </th>
+                <th><a href=\"{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}\">-</a>
+                Homme
+                <a href=\"{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}\">+</a>
+                </th>
                 </tr>
-            {% endfor %}
-            </table>
-        {% endif %}
+                {% for couple in mesGroupes %}
+                    <tr>
+                    <th> {{ couple[0] }} </th>
+                    <th> {{ couple[1].getNomGroupe()}} </th>
+                    <th> {{ couple[1].getArgent()}} </th> 
+                    <th> {{ couple[2]}} </th>
+                    </tr>
+                {% endfor %}
+                </table>
+            {% endif %}
 
-        {{form_start(form)}}
-        {{form_widget(form)}}
-        {{form_end(form)}}
+            {{form_start(form)}}
+            {{form_widget(form)}}
+            {{form_end(form)}}
+        </div>
+    </div>
+    
 {% endblock %}
 ", "PWMyBundle:Default:home.html.twig", "C:\\wamp\\www\\WebProj\\src\\PW\\MyBundle/Resources/views/Default/home.html.twig");
     }
