@@ -7,3 +7,10 @@ eda608,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493754732,,200
 aaf0e7,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493754733,,200
 9ffe22,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493754735,,200
 a6a10c,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493754739,,200
+934158,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493809784,,200
+c9e338,::1,POST,http://localhost/WebProj/web/app_dev.php/,1493809802,,302
+de7d2f,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493809803,,200
+37ca60,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493810017,,302
+e71b42,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493810018,,200
+d01949,::1,GET,http://localhost/WebProj/web/app_dev.php/deconnexion,1493810024,,302
+5c50c9,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493810025,,200
