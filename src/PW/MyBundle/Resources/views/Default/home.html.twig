@@ -71,22 +71,31 @@
 
             {% if groupes is defined %}
                 <table>
+                {% set all = (app.request.attributes.get('all') ) %}
                 <tr> 
-                <th><a href="{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}">-</a>
+                <th><a href="{{ path('/group', 
+                {'ordre':'exp','sens':'desc','all':all}) }}">-</a>
                     Experience
-                    <a href="{{ path('/group', {'ordre':'exp', 'sens':'asc'}) }}">+</a>
+                    <a href="{{ path('/group', 
+                    {'ordre':'exp', 'sens':'asc','all':all}) }}">+</a>
                 </th> 
-                <th><a href="{{ path('/group', {'ordre':'nom', 'sens':'desc'}) }}">-</a>
+                <th><a href="{{ path('/group', 
+                {'ordre':'nom', 'sens':'desc','all':all}) }}">-</a>
                 Nom
-                <a href="{{ path('/group', {'ordre':'nom', 'sens':'asc'}) }}">+</a>
+                <a href="{{ path('/group', 
+                {'ordre':'nom', 'sens':'asc','all':all}) }}">+</a>
                 </th>
-                <th><a href="{{ path('/group', {'ordre':'argent', 'sens':'desc'}) }}">-</a>
+                <th><a href="{{ path('/group', 
+                {'ordre':'argent', 'sens':'desc','all':all}) }}">-</a>
                 Argent
-                <a href="{{ path('/group', {'ordre':'argent', 'sens':'asc'}) }}">+</a>
+                <a href="{{ path('/group', 
+                {'ordre':'argent', 'sens':'asc','all':all}) }}">+</a>
                 </th>
-                <th><a href="{{ path('/group', {'ordre':'nbh', 'sens':'desc'}) }}">-</a>
+                <th><a href="{{ path('/group', 
+                {'ordre':'nbh', 'sens':'desc','all':all}) }}">-</a>
                 Homme
-                <a href="{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}">+</a>
+                <a href="{{ path('/group', 
+                {'ordre':'nbh', 'sens':'asc','all':all}) }}">+</a>
                 </th>
                 </tr>
             {% for couple in groupes %}
@@ -107,9 +116,11 @@
             </table>
             {% endif %}
 
+            {% if supprimable is defined and supprimable == true %}
             {{form_start(form)}}
             {{form_widget(form)}}
             {{form_end(form)}}
+            {% endif %}
         </div>
     </div>
     
