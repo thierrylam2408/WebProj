@@ -69,7 +69,7 @@
             {{form_widget(rechercheForm)}}
             {{form_end(rechercheForm)}}
 
-            {% if mesGroupes is defined %}
+            {% if groupes is defined %}
                 <table>
                 <tr> 
                 <th><a href="{{ path('/group', {'ordre':'exp', 'sens':'desc'}) }}">-</a>
@@ -89,15 +89,22 @@
                 <a href="{{ path('/group', {'ordre':'nbh', 'sens':'asc'}) }}">+</a>
                 </th>
                 </tr>
-                {% for couple in mesGroupes %}
-                    <tr>
-                    <th> {{ couple[0] }} </th>
-                    <th> {{ couple[1].getNomGroupe()}} </th>
-                    <th> {{ couple[1].getArgent()}} </th> 
-                    <th> {{ couple[2]}} </th>
-                    </tr>
-                {% endfor %}
-                </table>
+            {% for couple in groupes %}
+                <tr>
+                <th> {{ couple[0] }} </th>
+                <th><a href="{{ path('/homme', {'idGroupe':couple[1].getId() }) }}"> 
+                    {{ couple[1].getNomGroupe()}} </a></th>
+                <th> {{ couple[1].getArgent()}} </th> 
+                <th> {{ couple[2]}} </th>
+                {% if supprimable is defined and supprimable == true %}
+                <th>
+                <a href="{{ path('/supprimerGrp', {'idGroupe':couple[1].getId() }) }}">
+                Supprimer</a>
+                </th>
+                {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
             {% endif %}
 
             {{form_start(form)}}

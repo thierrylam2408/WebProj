@@ -19,6 +19,8 @@ class GroupController extends Controller{
 	private $session;
     private $repJoueur;
     private $em;
+    private $filePrenom = "prenoms.csv";
+    private $prenoms;
     
     /**
      * @Route("/group/{ordre}/{sens}/{all}",
@@ -62,6 +64,8 @@ class GroupController extends Controller{
         $this->repoGroup = $this->getDoctrine()->getRepository('PWMyBundle:Groupe');
         $this->repoHomme = $this->getDoctrine()->getRepository('PWMyBundle:Homme'); 
         $this->em = $this->getDoctrine()->getManager();
+        $file = fread(fopen($this->filePrenom, "r"), filesize($this->filePrenom));
+        $this->prenoms = split("\n", $file);
     }
 
     public function getPseudo(){
@@ -202,7 +206,7 @@ class GroupController extends Controller{
     		$group->setIdJoueur($this->session->get('id'));
     		$this->em->persist($group);
             $this->em->flush();
-            $array = array("nom"=>"NoName", "niveau"=>0, "idGroupe"=>$group->getId());
+            $array = array("niveau"=>0,"idGroupe"=>$group->getId());
             $homme1 = $this->createHomme($array);
             $homme2 = $this->createHomme($array);
             $homme3 = $this->createHomme($array);
@@ -214,10 +218,19 @@ class GroupController extends Controller{
 
     public function createHomme(Array $attr){
     	$homme = new Homme();
-    	$homme->setNom($attr["nom"]);
+    	$perso = $this->getPersonalite();
+    	$homme->setNom($perso[0]);
+    	$homme->setSexe($perso[1]);
     	$homme->setNiveau($attr["niveau"]);
     	$homme->setIdGroupe($attr["idGroupe"]);
     	return $homme;
+    }
+
+    //0 = Nom, 1 = Sexe (M ou F)
+    public function getPersonalite(){
+    	$i = rand(0, count($this->prenoms));
+    	$attr = split(";", $this->prenoms[$i]);
+    	return  array($attr[0], $attr[2]);
     }
 
     public function nbHommeGroup(Groupe $groupe){

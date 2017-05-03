@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use PW\MyBundle\Entity\Joueur;
 
 
@@ -31,6 +33,8 @@ class DefaultController extends Controller{
             //Si le champs est envoyé
             if(isset($request->request->all()['form'])){
                 $champs = $request->request->all()['form'];
+                //var_dump($request->files); 
+                //->getClientOriginalName() ->getClientOriginalExtension() ->move() uniqid()
                 if(count($champs) == count($inscription)+1){
                     if($this->inscription($champs) == null){
                         $array['reussiIns'] = "Inscription Reussie";
@@ -63,17 +67,17 @@ class DefaultController extends Controller{
 
     public function inscription(Array $champs){
         if($this->repository->findOneByPseudo($champs['pseudo']))
-            return "Le pseudo ".$champs['pseudo']." est deja prit";
+            return "Le pseudo ".$champs['pseudo']." est deja pris";
         if($this->repository->findOneByLogin($champs['login']))
-            return "Le login ".$champs['login']." est deja prit";
+            return "Le login ".$champs['login']." est deja pris";
         else{
             $joueur = new Joueur();
             $joueur->setLogin($champs['login']);
             $joueur->setPseudo($champs['pseudo']);
             $joueur->setMdp(md5($champs['mdp']));
             $joueur->setAvatar("default");
-            $this->em->persist($joueur);
-            $this->em->flush();
+            //$this->em->persist($joueur);
+            //$this->em->flush();
             return null;
         }
     }
@@ -101,6 +105,7 @@ class DefaultController extends Controller{
                 'attr'=>array('maxlength'=>10)))
             ->add('mdp', PasswordType::class, array('label' => 'Mot de passe',
                 'attr'=>array('maxlength'=>10)))
+            ->add('avatar', FileType::class, array('required'=>false))
             ->add('save', SubmitType::class, array('label' => 'Inscription'))
             ->getForm();
         return $form;
