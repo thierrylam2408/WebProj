@@ -48,3 +48,5 @@ dd9f6c,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493814417,,200
 4afa1b,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493814608,,200
 22d7fc,::1,POST,http://localhost/WebProj/web/app_dev.php/,1493814611,,302
 021308,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493814612,,200
+d7acdf,::1,GET,http://localhost/WebProj/web/app_dev.php/group/id/asc/true,1493814772,,200
+512b1c,::1,GET,http://localhost/WebProj/web/app_dev.php/group/id/asc/true,1493814781,,200
