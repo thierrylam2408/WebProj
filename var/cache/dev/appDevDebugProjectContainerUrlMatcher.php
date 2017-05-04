@@ -135,8 +135,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // /homme
-        if (0 === strpos($pathinfo, '/homme') && preg_match('#^/homme/(?P<idGroupe>\\d+)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => '/homme')), array (  '_controller' => 'PW\\MyBundle\\Controller\\HommeController::groupAction',));
+        if (0 === strpos($pathinfo, '/homme') && preg_match('#^/homme/(?P<idGroupe>\\d+)(?:/(?P<ordre>nom|niveau|sexe)(?:/(?P<sens>asc|desc))?)?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '/homme')), array (  'ordre' => 'niveau',  'sens' => 'asc',  '_controller' => 'PW\\MyBundle\\Controller\\HommeController::groupAction',));
         }
 
         // homepage
