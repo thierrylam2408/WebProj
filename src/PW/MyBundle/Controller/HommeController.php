@@ -45,7 +45,8 @@ class HommeController extends Controller{
         $rechercheForm = $this->createFormRecherche($filtre);
         $nomGroupe = $this->getNomGroupe($idGroupe);
         return $this->render('PWMyBundle:Default:play.html.twig',
-        array('nomGroupe'=>$nomGroupe,
+        array('pseudo'=>$this->getPseudo(),
+              'nomGroupe'=>$nomGroupe,
               'hommes'=>$hommes,
               'rechercheForm'=>$rechercheForm->createView()
             ));
@@ -57,6 +58,10 @@ class HommeController extends Controller{
         $this->repoGroup = $this->getDoctrine()->getRepository('PWMyBundle:Groupe');
         $this->repoHomme = $this->getDoctrine()->getRepository('PWMyBundle:Homme'); 
         $this->em = $this->getDoctrine()->getManager();
+    }
+
+    public function getPseudo(){
+        return $this->repJoueur->findOneById($this->session->get('id'))->getPseudo();
     }
 
     public function getHommesGroupe($idGroupe, Array $filtre){
