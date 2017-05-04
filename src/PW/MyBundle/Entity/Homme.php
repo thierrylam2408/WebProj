@@ -42,6 +42,13 @@ class Homme
      */
     private $idGroupe;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255)
+     */
+    private $sexe;
+
 
     /**
      * Get id
@@ -123,6 +130,30 @@ class Homme
     public function getIdGroupe()
     {
         return $this->idGroupe;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Homme
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
     }
 }
 
