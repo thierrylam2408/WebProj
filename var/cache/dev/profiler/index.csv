@@ -84,3 +84,13 @@ e0571c,::1,POST,http://localhost/WebProj/web/app_dev.php/createGroup,1493923473,
 2f6daa,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493923474,,200
 d1aa74,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493923484,,200
 15bd92,::1,POST,http://localhost/WebProj/web/app_dev.php/group,1493923514,,200
+cee7a6,::1,GET,http://localhost/WebProj/web/app_dev.php/deconnexion,1493996240,,302
+d384e1,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493996252,,200
+9a9e12,::1,POST,http://localhost/WebProj/web/app_dev.php/,1493996440,,302
+22d745,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493996444,,200
+74e82b,::1,GET,http://localhost/WebProj/web/app_dev.php/deconnexion,1493996995,,302
+ad93d3,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493996997,,200
+e85da2,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493997001,,200
+fcf8e0,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493997897,,200
+e0a9e2,::1,GET,http://localhost/WebProj/web/app_dev.php/about.html.twig,1493997909,f45de5,200
+f45de5,::1,GET,http://localhost/WebProj/web/app_dev.php/about.html.twig,1493997910,,404
