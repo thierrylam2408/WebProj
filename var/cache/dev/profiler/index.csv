@@ -73,3 +73,14 @@ fbbebb,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493921747,d8250
 d82503,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493921747,,500
 53ec44,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493921765,3ef4d2,200
 3ef4d2,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493921765,,500
+727dd9,::1,GET,http://localhost/WebProj/web/app_dev.php/,1493922590,,302
+39189d,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493922591,,200
+80891e,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493922594,,200
+601671,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493923450,,200
+367a9a,::1,GET,http://localhost/WebProj/web/app_dev.php/group/id/asc/true,1493923454,,200
+4aa751,::1,GET,http://localhost/WebProj/web/app_dev.php/group/id/asc/true,1493923456,,200
+ecd729,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493923460,,200
+e0571c,::1,POST,http://localhost/WebProj/web/app_dev.php/createGroup,1493923473,,302
+2f6daa,::1,GET,http://localhost/WebProj/web/app_dev.php/group,1493923474,,200
+d1aa74,::1,GET,http://localhost/WebProj/web/app_dev.php/homme/1,1493923484,,200
+15bd92,::1,POST,http://localhost/WebProj/web/app_dev.php/group,1493923514,,200
