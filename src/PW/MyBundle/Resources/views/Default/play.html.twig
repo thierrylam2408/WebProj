@@ -66,13 +66,13 @@
 {% block body %}
     <div class = "container">
         <div class="jumbotron">
-            {{form_start(rechercheForm)}}
+        {{form_start(rechercheForm)}}
         {{form_widget(rechercheForm)}}
         {{form_end(rechercheForm)}}
 
-        {{ pseudo }}
+        {{ pseudo }} argent:{{ argent}}
 
-        {% if hommes is defined %}
+        {% if hommesEtTemps is defined %}
             <table>
             <tr> 
             {% set id = (app.request.attributes.get('idGroupe') ) %}
@@ -94,15 +94,33 @@
                 <a href="{{path('/homme',
             {'idGroupe':id,'ordre':'sexe','sens':'asc'})}}">+</a>
             </th>
+            <th><a href="{{path('/homme',
+            {'idGroupe':id,'ordre':'etat','sens':'desc'})}}">-</a>
+            Disponibilité
+                <a href="{{path('/homme',
+            {'idGroupe':id,'ordre':'etat','sens':'asc'})}}">+</a>
+            </th>
             </tr>
-            {% for homme in hommes %}
+            {% for hommesEtTemps in hommesEtTemps %}
                 <tr>
-                <th> {{ homme.getNiveau() }} </th>
-                <th> {{ homme.getNom() }}</th>
-                <th> {{ homme.getSexe() }} </th> 
+                <th> {{ hommesEtTemps[0].getNiveau() }} </th>
+                <th> {{ hommesEtTemps[0].getNom() }}</th>
+                <th> {{ hommesEtTemps[0].getSexe() }} </th>
+                <th> 
+                    {% if hommesEtTemps[1] <= 0 %} 
+                        En attente
+                    {% else %}
+                        Occupé ({{hommesEtTemps[1]}}min)
+                    {% endif %}
+                </th>  
                 </tr>
             {% endfor %}
             </table>
+            {% if formMission is defined %}
+                {{form_start(formMission)}}
+                {{form_widget(formMission)}}
+                {{form_end(formMission)}}
+            {% endif %}
         {% endif %}
         </div>
     </div>

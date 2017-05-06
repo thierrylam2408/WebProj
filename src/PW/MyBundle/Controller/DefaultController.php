@@ -25,8 +25,8 @@ class DefaultController extends Controller{
      */
     public function indexAction(Request $request){
         $this->init($request);
-    	//Pas connecté 
-    	if(!$this->session->has('id')){
+        //Pas connecté 
+        if(!$this->session->has('id')){
             $connexion = $this->createFormConnection(array(""));
             $inscription = $this->createFromInscription(array(""));
             $array = array();
@@ -35,7 +35,8 @@ class DefaultController extends Controller{
                 $champs = $request->request->all()['form'];
                 //var_dump($request->files); 
                 //->getClientOriginalName() ->getClientOriginalExtension() ->move() uniqid()
-                if(count($champs) == count($inscription)+1){
+                if(count($champs) == count($inscription)+1 ||
+                    count($champs) == count($inscription)){
                     if($this->inscription($champs) == null){
                         $array['reussiIns'] = "Inscription Reussie";
                     }else{
@@ -53,10 +54,10 @@ class DefaultController extends Controller{
             $array['inscription'] = $inscription->createView();
             $array['connexion'] = $connexion->createView();
             //Page d'inscription/connexion
-    		return $this->render('PWMyBundle:Default:accueil.html.twig', $array);
-    	}
-    	//Connecté -> Page de navigation principale
-    	return $this->redirectToRoute("/group");
+            return $this->render('PWMyBundle:Default:accueil.html.twig', $array);
+        }
+        //Connecté -> Page de navigation principale
+        return $this->redirectToRoute("/group");
     }
 
     public function init(Request $request){
@@ -76,8 +77,8 @@ class DefaultController extends Controller{
             $joueur->setPseudo($champs['pseudo']);
             $joueur->setMdp(md5($champs['mdp']));
             $joueur->setAvatar("default");
-            //$this->em->persist($joueur);
-            //$this->em->flush();
+            $this->em->persist($joueur);
+            $this->em->flush();
             return null;
         }
     }
@@ -115,12 +116,12 @@ class DefaultController extends Controller{
     public function createFormConnection(Array $champs){
         $dataLogin = $this->hydrateChamps($champs, array("login"));
         $dataMdp = $this->hydrateChamps($champs, array("mdp"));
-		$form = $this->createFormBuilder()
+        $form = $this->createFormBuilder()
             ->add('login', TextType::class, array('data'=>$dataLogin))
             ->add('mdp', PasswordType::class, array('label' => 'Mot de passe', 'data'=>$dataMdp))
             ->add('save', SubmitType::class, array('label' => 'Connection'))
             ->getForm();
- 		return $form;
+        return $form;
     }
     
     public function hydrateChamps(Array $champs, Array $value){
