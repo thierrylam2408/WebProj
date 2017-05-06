@@ -15,6 +15,7 @@ use PW\MyBundle\Entity\Joueur;
 use PW\MyBundle\Entity\Groupe;
 use PW\MyBundle\Entity\Homme;
 use PW\MyBundle\Entity\Mission;
+use PW\MyBundle\Entity\Notif;
 use Symfony\Component\Process\Process;
 
 class HommeController extends Controller{
@@ -22,6 +23,12 @@ class HommeController extends Controller{
     private $session;
     private $repJoueur;
     private $em;
+    private $coutRecolter = 0;
+    private $tempsRecolter = 15;
+    private $coutEntrainer = 500;
+    private $tempsEntrainer = 30;
+    private $coutRecruter = 1000;
+    private $tempsRecruter = 45;
     
     /**
      * @Route("/homme/{idGroupe}/{ordre}/{sens}",
@@ -33,15 +40,9 @@ class HommeController extends Controller{
     public function groupAction(Request $request, $idGroupe, $ordre, $sens){
         $this->init($request);
         $this->update($idGroupe);
-        if( isset($request->request->all()['form']) &&
-            count($request->request->all()['form']) == 7){
+        if( isset($request->request->all()['form'])){
                 $filtre = $request->request->all()['form'];
                 $this->session->set('filtre2', $filtre);
-        }else if(isset($request->request->all()['form']) &&
-            count($request->request->all()['form']) == 4){
-                $mission = $request->request->all()['form'];
-                $this->envoyerMission($mission);
-                $filtre = array();
         }else{
             $filtre = array();
         }
@@ -58,8 +59,16 @@ class HommeController extends Controller{
               'hommesEtTemps'=>$hommesEtTemps,
               'rechercheForm'=>$rechercheForm->createView(),
             );
-        if(count($this->getHommesDispo($idGroupe))!=0)
+        if($this->peutFaireMission($idGroupe))
             $args['formMission'] = $this->createFormMission($idGroupe)->createView();
+        if($this->session->get('id') == 
+            $this->repoGroup->findOneById($idGroupe)->getIdJoueur()){
+            $args['notifVu'] = $this->getNotifVu($idGroupe);
+            $args['notifNonVu'] = $this->getNotifNonVu($idGroupe);
+        }else{
+            $args['notif'] = array_merge($this->getNotifNonVu($idGroupe),
+                $this->getNotifVu($idGroupe));
+        }
         return $this->render('PWMyBundle:Default:play.html.twig', $args);
     }
 
@@ -68,22 +77,45 @@ class HommeController extends Controller{
         $this->repJoueur = $this->getDoctrine()->getRepository('PWMyBundle:Joueur');
         $this->repoGroup = $this->getDoctrine()->getRepository('PWMyBundle:Groupe');
         $this->repoHomme = $this->getDoctrine()->getRepository('PWMyBundle:Homme'); 
-        $this->repoMission = $this->getDoctrine()->getRepository('PWMyBundle:Mission'); 
+        $this->repoMission = $this->getDoctrine()->getRepository('PWMyBundle:Mission');
+        $this->repoNotif = $this->getDoctrine()->getRepository('PWMyBundle:Notif'); 
         $this->em = $this->getDoctrine()->getManager();
+    }
+
+    public function peutFaireMission($idGroupe){
+        return count($this->getHommesDispo($idGroupe))!=0 && 
+        $this->session->get('id') == $this->repoGroup->findOneById($idGroupe)->getIdJoueur();
     }
 
     public function getArgent($idGroupe){
         return $this->repoGroup->findOneById($idGroupe)->getArgent();
     }
 
-    public function envoyerMission(Array $mission){
-        $m = new Mission();
-        $m->setType($mission['Mission']);
-        $m->setIdHomme($mission['Homme']);
-        $m->setExec(false);
-        $m->setDate(new \DateTime('+5 min'));
-        $this->em->persist($m);
-        $this->em->flush();
+    public function envoyerMission(Array $mission, $idGroupe){
+        if(strcmp($mission['Mission'], 'arg')==0){
+            $cout = $this->coutRecolter;
+            $duree = $this->tempsRecolter;
+        }
+        else if(strcmp($mission['Mission'], 'exp')==0){
+            $cout = $this->coutEntrainer;
+            $duree = $this->tempsEntrainer;
+        }
+        else{
+            $cout = $this->coutRecruter;
+            $duree = $this->tempsRecruter;            
+        }
+        $groupe = $this->repoGroup->findOneById($idGroupe);
+        if(!$this->estOccuper($mission['Homme']) && $groupe->getArgent() >= $cout){
+            $m = new Mission();
+            $m->setType($mission['Mission']);
+            $m->setIdHomme($mission['Homme']);
+            $m->setExec(false);
+            $m->setDate(new \DateTime('+'.$duree.' min'));
+            $this->em->persist($m);
+            $groupe->setArgent($groupe->getArgent() - $cout);
+            $this->em->persist($groupe);
+            $this->em->flush();
+        }
     }
 
 
@@ -104,12 +136,16 @@ class HommeController extends Controller{
         if(strcmp($typeMission, 'exp') == 0){
             $homme->setNiveau($homme->getNiveau()+1);
             $this->em->persist($homme);
+            $this->addNotif($homme->getNom()." est passé niveau ".$homme->getNiveau(),
+                            $homme->getIdGroupe());
         }
         else if(strcmp($typeMission, 'arg') == 0){
             $groupe = $this->repoGroup->findOneById($homme->getIdGroupe());
             $montant = 50 + round(rand($homme->getNiveau()-10, $homme->getNiveau()+10));
             $groupe->setArgent($groupe->getArgent() + $montant);
             $this->em->persist($groupe);
+            $this->addNotif($homme->getNom()." a récolté ".$montant."$",
+                            $homme->getIdGroupe());
         }
         else if(strcmp($typeMission, 'add') == 0){
             $query = $this->repoHomme->createQueryBuilder('p')
@@ -119,11 +155,53 @@ class HommeController extends Controller{
             $cibles = $query->getResult();
             if(count($cibles)>0){
                 $cible = $cibles[round(rand(0, count($cibles)-1))];
-                $cible->setIdGroupe($homme->getIdGroupe());  
+                $idGroupeVictime = $cible->getIdGroupe();
+                $groupe = $this->repoGroup->findOneById($homme->getIdGroupe())->getNomGroupe();
+                $cible->setIdGroupe($homme->getIdGroupe());
+                $this->addNotif($homme->getNom()." a recruté ".$cible->getNom(),
+                                $homme->getIdGroupe());  
+                $this->addNotif($groupe." a volé ".$cible->getNom(),
+                                $idGroupeVictime);  
             }
         }
         $mission->setExec(true);
         $this->em->flush();
+    }
+
+    public function addNotif($texte, $idGroupe){
+        $notif = new Notif();
+        $notif->setTexte($texte);
+        $notif->setVu(false);
+        $notif->setDate(new \DateTime());
+        $notif->setIdGroupe($idGroupe);
+        $this->em->persist($notif);
+        $this->em->flush();
+    }
+
+    public function getNotifNonVu($idGroupe){
+        $notif = $this->repoNotif->findBy(
+            array("idGroupe"=>$idGroupe, "vu"=>false));
+        if($this->repoGroup->findOneById($idGroupe)
+            ->getIdJoueur() == $this->session->get('id'))
+        for ($i=0; $i < count($notif); $i++) { 
+            $notif[$i]->setVu(true);
+            $this->em->persist($notif[$i]);
+        }
+        $this->em->flush();
+        uasort($notif, function($a, $b){
+            var_dump($a);
+            return -1*($a->getDate()->getTimestamp() - $b->getDate()->getTimestamp());
+        });
+        return $notif;
+    }
+
+    public function getNotifVu($idGroupe){
+        $notif = $this->repoNotif->findBy(
+            array("idGroupe"=>$idGroupe, "vu"=>true)); 
+        uasort($notif, function($a, $b){
+            return -1*($a->getDate()->getTimestamp() - $b->getDate()->getTimestamp());
+        });
+        return $notif;
     }
 
     public function getPseudo(){
@@ -199,6 +277,9 @@ class HommeController extends Controller{
             if(!$this->estOccuper($hommes[$i]))
                 $liste_filtrer[$hommes[$i]->getNom()] = $hommes[$i]->getId();
         }
+        uksort($liste_filtrer, function($a, $b){
+            return strnatcmp($a, $b);
+        });
         return $liste_filtrer;
     }
 
@@ -281,10 +362,26 @@ class HommeController extends Controller{
             ->add('Homme', ChoiceType::class, array(
                 'choices' => $this->getHommesDispo($idGroupe)))
             ->add('Mission', ChoiceType::class, array(
-                'choices' => array('Argent'=>'arg','Niveau'=>'exp','Recruter'=>'add')))
+                'choices' => 
+                    array('Recolter ('.$this->coutRecolter.'$)'=>'arg',
+                    'S\'entrainer ('.$this->coutEntrainer.'$)'=>'exp',
+                    'Recruter ('.$this->coutRecruter.'$)'=>'add')))
+            ->setAction($this->generateUrl('/mission', array('idGroupe'=>$idGroupe)))
             ->add('save', SubmitType::class, array('label' => 'Envoyer'))
             ->getForm();
         return $form;
 
+    }
+
+    /**
+     * @Route("/mission/{idGroupe}", name="/mission")
+     */
+    public function missionAction(Request $request, $idGroupe){
+        $this->init($request);
+        if(isset($request->request->all()['form'])){
+            $mission = $request->request->all()['form'];
+            $this->envoyerMission($mission, $idGroupe);
+        }
+        return $this->redirectToRoute("/homme", array('idGroupe'=>$idGroupe));
     }
 }
