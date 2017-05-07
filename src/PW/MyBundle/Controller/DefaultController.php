@@ -139,4 +139,10 @@ class DefaultController extends Controller{
         return $this->redirectToRoute("/");
     }
 
+    /**
+     * @Route("/about", name="/about")
+     */
+    public function aboutAction(Request $request){
+        return $this->render('PWMyBundle:Default:about.html.twig');
+    }
 }

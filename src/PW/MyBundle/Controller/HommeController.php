@@ -189,7 +189,6 @@ class HommeController extends Controller{
         }
         $this->em->flush();
         uasort($notif, function($a, $b){
-            var_dump($a);
             return -1*($a->getDate()->getTimestamp() - $b->getDate()->getTimestamp());
         });
         return $notif;
