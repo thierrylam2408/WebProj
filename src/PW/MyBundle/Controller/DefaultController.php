@@ -12,6 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use PW\MyBundle\Entity\Joueur;
+use PW\MyBundle\Entity\Groupe;
+use PW\MyBundle\Entity\Homme;
+use PW\MyBundle\Entity\Mission;
+use PW\MyBundle\Entity\Notif;
 
 
 class DefaultController extends Controller{
@@ -63,6 +67,10 @@ class DefaultController extends Controller{
     public function init(Request $request){
         $this->session = $request->getSession();
         $this->repository = $this->getDoctrine()->getRepository('PWMyBundle:Joueur');
+        $this->repoGroup = $this->getDoctrine()->getRepository('PWMyBundle:Groupe');
+        $this->repoHomme = $this->getDoctrine()->getRepository('PWMyBundle:Homme'); 
+        $this->repoMission = $this->getDoctrine()->getRepository('PWMyBundle:Mission');
+        $this->repoNotif = $this->getDoctrine()->getRepository('PWMyBundle:Notif'); 
         $this->em = $this->getDoctrine()->getManager();
     }
 
@@ -144,5 +152,153 @@ class DefaultController extends Controller{
      */
     public function aboutAction(Request $request){
         return $this->render('PWMyBundle:Default:about.html.twig');
+    }
+
+    /**
+     * @Route("/statistique", name="/statistique")
+     */
+    public function statistiqueAction(Request $request){
+    	$this->init($request);
+    	$triplets = $this->getExpGroupNbh();
+    	$array = array("pseudo"=>$this->getPseudo(), 
+    		"nbJoueur"=>$this->getNombreJoueur(),
+    		"nbGroupe"=>$this->getNombreGroupe(),
+    		"expMax"=>$this->getExpOuHomMax($triplets, 0),
+    		"hommeMax"=>$this->getExpOuHomMax($triplets, 2),
+    		"argMax"=>$this->getArgentMax($triplets),
+    		"expMoyen"=>$this->getExpMoyen($triplets),
+    		"argMoyen"=>$this->getArgMoyen($triplets),
+    		"nbHomme"=>$this->getNombreHomme(),
+    		"niveauMax"=>$this->getNiveauMax(),
+    		"niveauMoyen"=>$this->getNiveauMoyen(),
+    		"pourcentageH"=>$this->pourcentageHF("H"),
+    		"pourcentageF"=>$this->pourcentageHF("F")
+    		);
+    	var_dump($array);
+        return $this->render('PWMyBundle:Default:statistique.html.twig', $array);
+    }
+
+    public function getPseudo(){
+        return $this->repository->findOneById($this->session->get('id'))->getPseudo();
+    }
+
+    public function getNombreJoueur(){
+    	return count($this->repository->findAll());
+    }
+
+    public function getNombreGroupe(){
+    	return count($this->repoGroup->findAll());
+    }
+
+    //couple(nomGroupe, nb)
+    //$value=0 pour exp, $value=2 pour nb Homme
+    public function getExpOuHomMax(Array $groupes, $value){
+    	$nb = 0;
+    	$indice = 0;
+    	for ($i=0; $i < count($groupes); $i++) { 
+    		if($groupes[$i][$value] > $nb){
+    			$nb = $groupes[$i][$value];
+    			$indice = $i;
+    		}
+    	}
+    	return array($groupes[$indice][1]->getNomGroupe(), $nb);
+    }
+
+    //couple(nomGroupe, nb)
+    public function getArgentMax(Array $groupes){
+    	$nb = 0;
+    	$indice = 0;
+    	for ($i=0; $i < count($groupes); $i++) { 
+    		if($groupes[$i][1]->getArgent() > $nb){
+    			$nb = $groupes[$i][1]->getArgent();
+    			$indice = $i;
+    		}
+    	}
+    	return array($groupes[$indice][1]->getNomGroupe(), $nb);
+    }
+
+    public function getExpMoyen(Array $groupes){
+     	$nb = 0;
+    	for ($i=0; $i < count($groupes); $i++) { 
+    		$nb += $groupes[$i][0];
+    	}
+    	return $nb / count($groupes);   	
+    }
+
+    public function getArgMoyen(Array $groupes){
+    	$nb = 0;
+    	for ($i=0; $i < count($groupes); $i++) { 
+    		$nb += $groupes[$i][1]->getArgent();
+    	}
+    	return $nb / count($groupes);
+    }
+
+    public function getNombreHomme(){
+    	return count($this->repoHomme->findAll());
+    }
+
+    //(nom, lvl)
+    public function getNiveauMax(){
+    	$hommes = $this->repoHomme->findAll();
+    	$nb = 0;
+    	$indice = 0;
+    	for ($i=0; $i < count($hommes); $i++) { 
+    		if($hommes[$i]->getNiveau() > $nb){
+    			$nb = $hommes[$i]->getNiveau();
+    			$indice = $i;
+    		}
+    	}
+    	return array($hommes[$indice]->getNom(), $nb);
+    }
+
+    public function getNiveauMoyen(){
+      	$hommes = $this->repoHomme->findAll();
+    	$nb = 0;
+    	for ($i=0; $i < count($hommes); $i++) { 
+    		$nb += $hommes[$i]->getNiveau();
+    	}
+    	return $nb / count($hommes);
+    }
+
+
+    //M ou F
+    public function pourcentageHF($c){
+      	$hommes = $this->repoHomme->findAll();
+    	$nb = 0;
+    	for ($i=0; $i < count($hommes); $i++) { 
+    		if(strcmp($hommes[$i]->getSexe(),$c)==0){
+    			$nb++;
+    		}
+    	}
+    	return round(($nb / count($hommes)*100));
+    }
+
+
+    public function getExpGroupNbh(){
+    	$groupe = $this->repoGroup->findAll();
+    	$result = array();
+    	if($groupe != null){
+    		for($i=0; $i<count($groupe); $i++)
+    			$result[$i] = array($this->getExpGroup($groupe[$i]),
+    				$groupe[$i],$this->nbHommeGroup($groupe[$i]));
+    	}
+    	return $result;
+    }
+
+    public function getExpGroup(Groupe $groupe){
+    	$hommes = $this->getHommesGroupe($groupe);
+    	$exp = 0;
+    	for($i=0; $i<count($hommes); $i++){
+    		$exp += $hommes[$i]->getNiveau();
+    	}  	
+    	return $exp;
+    }
+    public function getHommesGroupe(Groupe $groupe){
+    	$hommes = $this->repoHomme->findByIdGroupe($groupe->getId());
+    	return $hommes;
+    }
+
+    public function nbHommeGroup(Groupe $groupe){
+    	return count($this->repoHomme->findByIdGroupe($groupe->getId()));
     }
 }
