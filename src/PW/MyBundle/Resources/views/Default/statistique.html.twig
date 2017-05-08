@@ -1,6 +1,6 @@
 {% extends "PWMyBundle::layout.html.twig" %}
 {% block title %}
-    Home
+    Statistique
 {% endblock %}
 {% block nav %}
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -15,9 +15,8 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li class="active"><a href="{{ path('/group') }}">Mes groupes</a></li>
-                <li><a href="{{ path('/group', {'all':'true'}) }}">Tous les groupes</a></li>
+                <li><a href="{{ path('/group')}}">Home</a></li>
+                <li><a href="{{ path('/group')}} class="btn btn-info" role="button" ">Les groupes</a></li>
                 <li><a href="{{ path('/statistique') }}">Statistique</a></li>           
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -46,15 +45,9 @@
                             </div>
                         </li>
                         <li class="divider navbar-login-session-bg"></li>
-                         <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                        <li><a href="{{ path('/statistique')}}">Statistique<span class="glyphicon glyphicon-stats pull-right"></span></a></li>
                         <li class="divider"></li>
-                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ url('/deconnexion') }}">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                        <li><a href="{{ url('/deconnexion') }}">Déconnexion<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -63,21 +56,59 @@
 </div>
 {% endblock %}
 
-{% block body %}
-    nombre joueur {{nbJoueur}}
-    nombre gourpe {{nbGroupe}}
-    Le groupe plus haut exp {{expMax[0]}} avec {{expMax[1]}}
-    Le groupe plus d'homme {{hommeMax[0]}} avec {{hommeMax[1]}}
-    Le groupe plus argent {{argMax[0]}} avec {{argMax[1]}}$
-    exp moyen {{expMoyen}}
-    argentmoyen {{argMoyen}}$
+{% block form %}
+<div class="row" style="margin-top:70px">
+    <h2 class="text-center">Statistiques</h2>
+    <div class="col-md-6">
+        <div class="panel-group" >
+          <div class="panel panel-default">
+            <div class="panel-body">nombre joueur <strong>{{nbJoueur}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">nombre groupe <strong></strong>{{nbGroupe}}</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">Le groupe plus haut exp <strong>{{expMax[0]}} avec {{expMax[1]}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">Le groupe plus d'homme <strong>{{hommeMax[0]}} avec {{hommeMax[1]}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">Le groupe plus argent <strong>{{argMax[0]}} avec {{argMax[1]}}$</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">exp moyen <strong>{{expMoyen}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">argent moyen <strong>{{argMoyen}}</strong></div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel-group" >
+          <div class="panel panel-default">
+            <div class="panel-body">Perso plus fort <strong>{{niveauMax[0]}} niveau {{niveauMax[1]}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">Niveau moyen <strong></strong>{{niveauMoyen}}</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body"><strong>{{pourcentageH}}%</strong> d'homme <strong>{{pourcentageF}}%</strong> de femme</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">Missions effectuées <strong>{{Missions}}</strong></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body"><strong>{{pourcentageLO[0]}}%</strong> de personne libre</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body"><strong>{{pourcentageLO[1]}}%</strong> de personne occupé</div>
+          </div>
+        </div>
+    </div>
+</div>
 
-    Perso plus fort {{niveauMax[0]}} niveau {{niveauMax[1]}}
-    Niveau moyen {{niveauMoyen}}
-    {{pourcentageH}}% d'homme {{pourcentageF}}% de femme
-    Missions effectuées{{Missions}}
-    {{pourcentageLO[0]}}% de personne libre
-    {{pourcentageLO[1]}}% de personne occupé
+    
 
 {% endblock %}
 

@@ -12,7 +12,7 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'nav' => array($this, 'block_nav'),
-            'body' => array($this, 'block_body'),
+            'form' => array($this, 'block_form'),
         );
     }
 
@@ -23,52 +23,52 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1ed4e222b3691ca086166472a7ecb0324646a8d9110c6ccbc06aace9c5ae509e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1ed4e222b3691ca086166472a7ecb0324646a8d9110c6ccbc06aace9c5ae509e->enter($__internal_1ed4e222b3691ca086166472a7ecb0324646a8d9110c6ccbc06aace9c5ae509e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:play.html.twig"));
+        $__internal_99c15ec7d43150ea9614a86d7c7cbee4acde84467da17dffb5c5e88fd246a213 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_99c15ec7d43150ea9614a86d7c7cbee4acde84467da17dffb5c5e88fd246a213->enter($__internal_99c15ec7d43150ea9614a86d7c7cbee4acde84467da17dffb5c5e88fd246a213_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:play.html.twig"));
 
-        $__internal_83e5b7bb5bbe8cc62bb72eb27373487d982c8a88df1fae89c85cf38412e874f5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_83e5b7bb5bbe8cc62bb72eb27373487d982c8a88df1fae89c85cf38412e874f5->enter($__internal_83e5b7bb5bbe8cc62bb72eb27373487d982c8a88df1fae89c85cf38412e874f5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:play.html.twig"));
+        $__internal_6f134fe8133a379e6c6217a78f1df1b24c4e5f21c955a6891ae528c152f7534e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6f134fe8133a379e6c6217a78f1df1b24c4e5f21c955a6891ae528c152f7534e->enter($__internal_6f134fe8133a379e6c6217a78f1df1b24c4e5f21c955a6891ae528c152f7534e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "PWMyBundle:Default:play.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1ed4e222b3691ca086166472a7ecb0324646a8d9110c6ccbc06aace9c5ae509e->leave($__internal_1ed4e222b3691ca086166472a7ecb0324646a8d9110c6ccbc06aace9c5ae509e_prof);
+        $__internal_99c15ec7d43150ea9614a86d7c7cbee4acde84467da17dffb5c5e88fd246a213->leave($__internal_99c15ec7d43150ea9614a86d7c7cbee4acde84467da17dffb5c5e88fd246a213_prof);
 
         
-        $__internal_83e5b7bb5bbe8cc62bb72eb27373487d982c8a88df1fae89c85cf38412e874f5->leave($__internal_83e5b7bb5bbe8cc62bb72eb27373487d982c8a88df1fae89c85cf38412e874f5_prof);
+        $__internal_6f134fe8133a379e6c6217a78f1df1b24c4e5f21c955a6891ae528c152f7534e->leave($__internal_6f134fe8133a379e6c6217a78f1df1b24c4e5f21c955a6891ae528c152f7534e_prof);
 
     }
 
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        $__internal_e3ecd1ea99c272704808561a97c66544f8e22b2570fbe9b0f6a66df0a6dc8e4a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e3ecd1ea99c272704808561a97c66544f8e22b2570fbe9b0f6a66df0a6dc8e4a->enter($__internal_e3ecd1ea99c272704808561a97c66544f8e22b2570fbe9b0f6a66df0a6dc8e4a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_66802fb6529189fa556e3feead1af08db13a7e9ce50c7230e2eb3b187a7f2e08 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_66802fb6529189fa556e3feead1af08db13a7e9ce50c7230e2eb3b187a7f2e08->enter($__internal_66802fb6529189fa556e3feead1af08db13a7e9ce50c7230e2eb3b187a7f2e08_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_0f5df398c323696a825b081f81955133b30e78d8eec062131945d92b4fcb54d9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0f5df398c323696a825b081f81955133b30e78d8eec062131945d92b4fcb54d9->enter($__internal_0f5df398c323696a825b081f81955133b30e78d8eec062131945d92b4fcb54d9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_fc2b448ab63313566f17bb5599e1586f718d555f5d3033fdd71b2369a1f4eadd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_fc2b448ab63313566f17bb5599e1586f718d555f5d3033fdd71b2369a1f4eadd->enter($__internal_fc2b448ab63313566f17bb5599e1586f718d555f5d3033fdd71b2369a1f4eadd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 3
-        echo "    Home
+        echo "    Homme
 ";
         
-        $__internal_0f5df398c323696a825b081f81955133b30e78d8eec062131945d92b4fcb54d9->leave($__internal_0f5df398c323696a825b081f81955133b30e78d8eec062131945d92b4fcb54d9_prof);
+        $__internal_fc2b448ab63313566f17bb5599e1586f718d555f5d3033fdd71b2369a1f4eadd->leave($__internal_fc2b448ab63313566f17bb5599e1586f718d555f5d3033fdd71b2369a1f4eadd_prof);
 
         
-        $__internal_e3ecd1ea99c272704808561a97c66544f8e22b2570fbe9b0f6a66df0a6dc8e4a->leave($__internal_e3ecd1ea99c272704808561a97c66544f8e22b2570fbe9b0f6a66df0a6dc8e4a_prof);
+        $__internal_66802fb6529189fa556e3feead1af08db13a7e9ce50c7230e2eb3b187a7f2e08->leave($__internal_66802fb6529189fa556e3feead1af08db13a7e9ce50c7230e2eb3b187a7f2e08_prof);
 
     }
 
     // line 5
     public function block_nav($context, array $blocks = array())
     {
-        $__internal_822bad513b13489f55baaad2254d8550dafdf118e7d14b2612b2ffbce5a2dadf = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_822bad513b13489f55baaad2254d8550dafdf118e7d14b2612b2ffbce5a2dadf->enter($__internal_822bad513b13489f55baaad2254d8550dafdf118e7d14b2612b2ffbce5a2dadf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
+        $__internal_88180aaf5f8d772d64a270f2d03e70b6c7da436a3e25594a1837ade26738b257 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_88180aaf5f8d772d64a270f2d03e70b6c7da436a3e25594a1837ade26738b257->enter($__internal_88180aaf5f8d772d64a270f2d03e70b6c7da436a3e25594a1837ade26738b257_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
 
-        $__internal_d5bd8243d45c55592efbbfbfb90129b1fa592fb524fa027e811fb4fb2e6f84ef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d5bd8243d45c55592efbbfbfb90129b1fa592fb524fa027e811fb4fb2e6f84ef->enter($__internal_d5bd8243d45c55592efbbfbfb90129b1fa592fb524fa027e811fb4fb2e6f84ef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
+        $__internal_c7a145fd62811236b288a0c20eea35e2248f71c22891a6676daeb5f1d5b3f4bf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c7a145fd62811236b288a0c20eea35e2248f71c22891a6676daeb5f1d5b3f4bf->enter($__internal_c7a145fd62811236b288a0c20eea35e2248f71c22891a6676daeb5f1d5b3f4bf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "nav"));
 
         // line 6
-        echo "  <div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">
+        echo " <div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\"> 
         <div class=\"navbar-header\">
             <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">
@@ -76,30 +76,28 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
                 <span class=\"icon-bar\"></span>
                 <span class=\"icon-bar\"></span> 
             </button>
-            <a target=\"_blank\" href=\"#\" class=\"navbar-brand\">KENYLAM GAME</a>
+            <a href=\"";
+        // line 14
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group");
+        echo "\" class=\"navbar-brand\">KENYLAM GAME</a>
         </div>
         <div class=\"collapse navbar-collapse\">
             <ul class=\"nav navbar-nav\">
-                <li><a href=\"#\">Home</a></li>
-                <li class=\"active\"><a href=\"";
+                <li><a href=\"";
+        // line 18
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group");
+        echo "\">Home</a></li>
+                <li><a href=\"";
         // line 19
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group");
-        echo "\">Mes groupes</a></li>
-                <li class=\"active\"><a href=\"";
-        // line 20
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group");
-        echo "\">Mes hommes</a></li>
-                <li><a href=\"";
-        // line 21
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/group", array("all" => "true"));
-        echo "\">Tous les groupes</a></li>            
+        echo " class=\"btn btn-info\" role=\"button\" \">Les groupes</a></li>             
              </ul>
             <ul class=\"nav navbar-nav navbar-right\">
                 <li class=\"dropdown\">
                     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                         <span class=\"glyphicon glyphicon-user\"></span>
                         <strong>";
-        // line 27
+        // line 25
         echo twig_escape_filter($this->env, (isset($context["pseudo"]) ? $context["pseudo"] : $this->getContext($context, "pseudo")), "html", null, true);
         echo "</strong>
                         <span class=\"glyphicon glyphicon-chevron-down\"></span>
@@ -115,7 +113,7 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
                                     </div>
                                     <div class=\"col-lg-8\">
                                         <p class=\"text-left\"><strong>";
-        // line 40
+        // line 38
         echo twig_escape_filter($this->env, (isset($context["pseudo"]) ? $context["pseudo"] : $this->getContext($context, "pseudo")), "html", null, true);
         echo "</strong></p>
                                         <p class=\"text-left\">
@@ -135,7 +133,7 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
                         <li><a href=\"#\">Favourites Snippets <span class=\"glyphicon glyphicon-heart pull-right\"></span></a></li>
                         <li class=\"divider\"></li>
                         <li><a href=\"";
-        // line 57
+        // line 55
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getUrl("/deconnexion");
         echo "\">Sign Out <span class=\"glyphicon glyphicon-log-out pull-right\"></span></a></li>
                     </ul>
@@ -146,128 +144,336 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
 </div>
 ";
         
-        $__internal_d5bd8243d45c55592efbbfbfb90129b1fa592fb524fa027e811fb4fb2e6f84ef->leave($__internal_d5bd8243d45c55592efbbfbfb90129b1fa592fb524fa027e811fb4fb2e6f84ef_prof);
+        $__internal_c7a145fd62811236b288a0c20eea35e2248f71c22891a6676daeb5f1d5b3f4bf->leave($__internal_c7a145fd62811236b288a0c20eea35e2248f71c22891a6676daeb5f1d5b3f4bf_prof);
 
         
-        $__internal_822bad513b13489f55baaad2254d8550dafdf118e7d14b2612b2ffbce5a2dadf->leave($__internal_822bad513b13489f55baaad2254d8550dafdf118e7d14b2612b2ffbce5a2dadf_prof);
+        $__internal_88180aaf5f8d772d64a270f2d03e70b6c7da436a3e25594a1837ade26738b257->leave($__internal_88180aaf5f8d772d64a270f2d03e70b6c7da436a3e25594a1837ade26738b257_prof);
 
     }
 
-    // line 66
-    public function block_body($context, array $blocks = array())
+    // line 64
+    public function block_form($context, array $blocks = array())
     {
-        $__internal_21de48113775f164ec90f2f750b2d8ba32e36fe4127114e6669c803999a87b48 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_21de48113775f164ec90f2f750b2d8ba32e36fe4127114e6669c803999a87b48->enter($__internal_21de48113775f164ec90f2f750b2d8ba32e36fe4127114e6669c803999a87b48_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_82c747649e7d3e05e989d885c81db879fd9cadff9c115411d08acee3b12c2c17 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_82c747649e7d3e05e989d885c81db879fd9cadff9c115411d08acee3b12c2c17->enter($__internal_82c747649e7d3e05e989d885c81db879fd9cadff9c115411d08acee3b12c2c17_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "form"));
 
-        $__internal_1bbd56ec658c472e3044bc104dd9616a12bd30f4184a23a9b4a667ee9576b263 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1bbd56ec658c472e3044bc104dd9616a12bd30f4184a23a9b4a667ee9576b263->enter($__internal_1bbd56ec658c472e3044bc104dd9616a12bd30f4184a23a9b4a667ee9576b263_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_46bbdca2ddb4be15e8facbce793fdfb8cfede4406d041787c270394b908a17c5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_46bbdca2ddb4be15e8facbce793fdfb8cfede4406d041787c270394b908a17c5->enter($__internal_46bbdca2ddb4be15e8facbce793fdfb8cfede4406d041787c270394b908a17c5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "form"));
 
-        // line 67
-        echo "    <div class = \"container\">
-        <div class=\"jumbotron\">
-            ";
+        // line 65
+        echo "<div class=\"row\">
+  <div class=\"col-md-6\">
+    <div class=\"form-horizontal\" style=\"margin-top:75px\">
+        <h2 style=\"margin-left:120px\">Rechercher un Homme</h2>
+      ";
         // line 69
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'form_start');
         echo "
-        ";
-        // line 70
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'widget');
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Niv Min</label>
+        <div class=\"col-md-4\">
+          ";
+        // line 73
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "nivMin", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
-        ";
-        // line 71
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Niv Max</label>
+        <div class=\"col-md-4\">
+          ";
+        // line 79
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "nivMax", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Nom</label>
+        <div class=\"col-md-4\">
+          ";
+        // line 85
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "nom", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Sexe</label>
+        <div class=\"col-md-4\">
+          ";
+        // line 91
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "sexe", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Etat</label>
+        <div class=\"col-md-4\">
+          ";
+        // line 97
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "etat", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <div class=\"col-sm-2\" style=\"margin-left:150px\">
+          ";
+        // line 102
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), "save", array()), 'widget', array("attr" => array("class" => "btn btn-default")));
+        echo "
+          ";
+        // line 103
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["rechercheForm"]) ? $context["rechercheForm"] : $this->getContext($context, "rechercheForm")), 'form_end');
         echo "
-
-        ";
-        // line 73
-        echo twig_escape_filter($this->env, (isset($context["pseudo"]) ? $context["pseudo"] : $this->getContext($context, "pseudo")), "html", null, true);
-        echo "
-
-        ";
-        // line 75
-        if (array_key_exists("hommes", $context)) {
-            // line 76
-            echo "            <table>
-            <tr> 
-            ";
-            // line 78
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\"col-md-6\" style=\"margin-top:50px\">
+    <h2 style=\"margin-left:180px\">Tous mes Hommes</h2>
+    <h3 style=\"margin-left:120px\">Groupe : <strong>";
+        // line 110
+        echo twig_escape_filter($this->env, (isset($context["nomGroupe"]) ? $context["nomGroupe"] : $this->getContext($context, "nomGroupe")), "html", null, true);
+        echo "</strong></h3>
+    <h3 style=\"margin-left:120px\">Argent : <strong>";
+        // line 111
+        echo twig_escape_filter($this->env, (isset($context["argent"]) ? $context["argent"] : $this->getContext($context, "argent")), "html", null, true);
+        echo "</strong> </h3>
+    ";
+        // line 112
+        if (array_key_exists("hommesEtTemps", $context)) {
+            // line 113
+            echo "                <table class=\"table table-striped\">
+                  ";
+            // line 114
+            $context["all"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "attributes", array()), "get", array(0 => "all"), "method");
+            // line 115
+            echo "                <thread>
+                  <tr> 
+                    ";
+            // line 117
             $context["id"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "attributes", array()), "get", array(0 => "idGroupe"), "method");
-            // line 79
-            echo "            <th><a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 80
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "niveau", "sens" => "desc")), "html", null, true);
-            echo "\">-</a>
-            Niveau
-                <a href=\"";
-            // line 82
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 83
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "niveau", "sens" => "asc")), "html", null, true);
+            // line 118
+            echo "                    <th>
+                        <a href=\"";
+            // line 119
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "niveau", "sens" => "desc")), "html", null, true);
+            echo "\">-</a>Niveau
+                        <a href=\"";
+            // line 120
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "niveau", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th> 
-            <th><a href=\"";
-            // line 85
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 86
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "nom", "sens" => "desc")), "html", null, true);
-            echo "\">-</a>
-            Nom
-                <a href=\"";
-            // line 88
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 89
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "nom", "sens" => "asc")), "html", null, true);
+                    </th> 
+                    <th>
+                        <a href=\"";
+            // line 123
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "nom", "sens" => "desc")), "html", null, true);
+            echo "\">-</a>Nom
+                        <a href=\"";
+            // line 124
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "nom", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th>
-            <th><a href=\"";
-            // line 91
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 92
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "sexe", "sens" => "desc")), "html", null, true);
-            echo "\">-</a>
-            Sexe
-                <a href=\"";
-            // line 94
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" =>             // line 95
-(isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "sexe", "sens" => "asc")), "html", null, true);
+                    </th>
+                    <th>
+                        <a href=\"";
+            // line 127
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "sexe", "sens" => "desc")), "html", null, true);
+            echo "\">-</a>Sexe
+                        <a href=\"";
+            // line 128
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "sexe", "sens" => "asc")), "html", null, true);
             echo "\">+</a>
-            </th>
-            </tr>
-            ";
-            // line 98
+                    </th>
+                    <th>
+                        <a href=\"";
+            // line 131
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "etat", "sens" => "desc")), "html", null, true);
+            echo "\">-</a>Disponibilité
+                        <a href=\"";
+            // line 132
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("/homme", array("idGroupe" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "ordre" => "etat", "sens" => "asc")), "html", null, true);
+            echo "\">+</a>
+                    </th>
+                  </tr>
+                </thread>
+                <tbody>
+                    ";
+            // line 137
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["hommes"]) ? $context["hommes"] : $this->getContext($context, "hommes")));
-            foreach ($context['_seq'] as $context["_key"] => $context["homme"]) {
-                // line 99
-                echo "                <tr>
-                <th> ";
-                // line 100
-                echo twig_escape_filter($this->env, $this->getAttribute($context["homme"], "getNiveau", array(), "method"), "html", null, true);
-                echo " </th>
-                <th> ";
-                // line 101
-                echo twig_escape_filter($this->env, $this->getAttribute($context["homme"], "getNom", array(), "method"), "html", null, true);
-                echo "</th>
-                <th> ";
-                // line 102
-                echo twig_escape_filter($this->env, $this->getAttribute($context["homme"], "getSexe", array(), "method"), "html", null, true);
-                echo " </th> 
-                </tr>
-            ";
+            $context['_seq'] = twig_ensure_traversable($context["hommesEtTemps"]);
+            foreach ($context['_seq'] as $context["_key"] => $context["hommesEtTemps"]) {
+                // line 138
+                echo "                        <tr>
+                            <td> ";
+                // line 139
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["hommesEtTemps"], 0, array(), "array"), "getNiveau", array(), "method"), "html", null, true);
+                echo " </td>
+                            <td> ";
+                // line 140
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["hommesEtTemps"], 0, array(), "array"), "getNom", array(), "method"), "html", null, true);
+                echo "</td>
+                            <td> ";
+                // line 141
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["hommesEtTemps"], 0, array(), "array"), "getSexe", array(), "method"), "html", null, true);
+                echo " </td>
+                            <td> 
+                                ";
+                // line 143
+                if (($this->getAttribute($context["hommesEtTemps"], 1, array(), "array") <= 0)) {
+                    echo " 
+                                    En attente
+                                ";
+                } else {
+                    // line 146
+                    echo "                                    Occupé (";
+                    echo twig_escape_filter($this->env, $this->getAttribute($context["hommesEtTemps"], 1, array(), "array"), "html", null, true);
+                    echo "min)
+                                ";
+                }
+                // line 148
+                echo "                            </td>  
+                        </tr>
+                    ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['homme'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['hommesEtTemps'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 105
-            echo "            </table>
-        ";
+            // line 151
+            echo "                </tbody>
+               </table>
+              ";
         }
-        // line 107
-        echo "        </div>
-    </div>
-    
+        // line 154
+        echo "              <div class=\"form-horizontal\" style=\"margin-top:75px\">
+                <h2 style=\"margin-left:120px\">Effectuer une Mission</h2>
+                ";
+        // line 156
+        if (array_key_exists("formMission", $context)) {
+            // line 157
+            echo "                  ";
+            echo             $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formMission"]) ? $context["formMission"] : $this->getContext($context, "formMission")), 'form_start');
+            echo "
+                    <div class=\"form-group\">
+                      <label  class=\"col-md-3 control-label\">Homme</label>
+                      <div class=\"col-md-4\">
+                        ";
+            // line 161
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formMission"]) ? $context["formMission"] : $this->getContext($context, "formMission")), "Homme", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
+                      </div>
+                    </div>
+                    <div class=\"form-group\">
+                      <label  class=\"col-md-3 control-label\">Mission</label>
+                      <div class=\"col-md-4\">
+                        ";
+            // line 167
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formMission"]) ? $context["formMission"] : $this->getContext($context, "formMission")), "Mission", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
+                      </div>
+                    </div>
+                    <div class=\"form-group\">
+                    <div class=\"col-sm-2\" style=\"margin-left:150px\">
+                      ";
+            // line 172
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formMission"]) ? $context["formMission"] : $this->getContext($context, "formMission")), "save", array()), 'widget', array("attr" => array("class" => "btn btn-default")));
+            echo "
+                    </div>
+                  </div>
+                  ";
+            // line 175
+            echo             $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formMission"]) ? $context["formMission"] : $this->getContext($context, "formMission")), 'form_end');
+            echo "
+                  ";
+        }
+        // line 177
+        echo "              </div>
+              
+  </div>
+</div>
+<div class=\"panel-group\">
+    <h2 class=\"text-center\">Mission Terminée</h2> 
+    ";
+        // line 183
+        if (array_key_exists("notif", $context)) {
+            // line 184
+            echo "                    ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["notif"]) ? $context["notif"] : $this->getContext($context, "notif")));
+            foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
+                // line 185
+                echo "                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> ";
+                // line 186
+                echo twig_escape_filter($this->env, $this->getAttribute($context["n"], "texte", array()), "html", null, true);
+                echo " <br> </div>
+                        </div>
+                        
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 190
+            echo "                ";
+        }
+        // line 191
+        echo "
+                ";
+        // line 192
+        if (array_key_exists("notifNonVu", $context)) {
+            // line 193
+            echo "                    ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["notifNonVu"]) ? $context["notifNonVu"] : $this->getContext($context, "notifNonVu")));
+            foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
+                // line 194
+                echo "                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> (!)";
+                // line 195
+                echo twig_escape_filter($this->env, $this->getAttribute($context["n"], "texte", array()), "html", null, true);
+                echo "(!) <br> </div>
+                        </div>   
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 198
+            echo "                ";
+        }
+        // line 199
+        echo "
+                ";
+        // line 200
+        if (array_key_exists("notifVu", $context)) {
+            // line 201
+            echo "                    ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["notifVu"]) ? $context["notifVu"] : $this->getContext($context, "notifVu")));
+            foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
+                // line 202
+                echo "                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> ";
+                // line 203
+                echo twig_escape_filter($this->env, $this->getAttribute($context["n"], "texte", array()), "html", null, true);
+                echo " <br> </div>
+                        </div> 
+                        
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 207
+            echo "                ";
+        }
+        // line 208
+        echo "</div>
 ";
         
-        $__internal_1bbd56ec658c472e3044bc104dd9616a12bd30f4184a23a9b4a667ee9576b263->leave($__internal_1bbd56ec658c472e3044bc104dd9616a12bd30f4184a23a9b4a667ee9576b263_prof);
+        $__internal_46bbdca2ddb4be15e8facbce793fdfb8cfede4406d041787c270394b908a17c5->leave($__internal_46bbdca2ddb4be15e8facbce793fdfb8cfede4406d041787c270394b908a17c5_prof);
 
         
-        $__internal_21de48113775f164ec90f2f750b2d8ba32e36fe4127114e6669c803999a87b48->leave($__internal_21de48113775f164ec90f2f750b2d8ba32e36fe4127114e6669c803999a87b48_prof);
+        $__internal_82c747649e7d3e05e989d885c81db879fd9cadff9c115411d08acee3b12c2c17->leave($__internal_82c747649e7d3e05e989d885c81db879fd9cadff9c115411d08acee3b12c2c17_prof);
 
     }
 
@@ -283,7 +489,7 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
 
     public function getDebugInfo()
     {
-        return array (  262 => 107,  258 => 105,  249 => 102,  245 => 101,  241 => 100,  238 => 99,  234 => 98,  228 => 95,  227 => 94,  222 => 92,  221 => 91,  216 => 89,  215 => 88,  210 => 86,  209 => 85,  204 => 83,  203 => 82,  198 => 80,  196 => 79,  194 => 78,  190 => 76,  188 => 75,  183 => 73,  178 => 71,  174 => 70,  170 => 69,  166 => 67,  157 => 66,  139 => 57,  119 => 40,  103 => 27,  94 => 21,  90 => 20,  86 => 19,  71 => 6,  62 => 5,  51 => 3,  42 => 2,  11 => 1,);
+        return array (  470 => 208,  467 => 207,  457 => 203,  454 => 202,  449 => 201,  447 => 200,  444 => 199,  441 => 198,  432 => 195,  429 => 194,  424 => 193,  422 => 192,  419 => 191,  416 => 190,  406 => 186,  403 => 185,  398 => 184,  396 => 183,  388 => 177,  383 => 175,  377 => 172,  369 => 167,  360 => 161,  352 => 157,  350 => 156,  346 => 154,  341 => 151,  333 => 148,  327 => 146,  321 => 143,  316 => 141,  312 => 140,  308 => 139,  305 => 138,  301 => 137,  293 => 132,  289 => 131,  283 => 128,  279 => 127,  273 => 124,  269 => 123,  263 => 120,  259 => 119,  256 => 118,  254 => 117,  250 => 115,  248 => 114,  245 => 113,  243 => 112,  239 => 111,  235 => 110,  225 => 103,  221 => 102,  213 => 97,  204 => 91,  195 => 85,  186 => 79,  177 => 73,  170 => 69,  164 => 65,  155 => 64,  137 => 55,  117 => 38,  101 => 25,  92 => 19,  88 => 18,  81 => 14,  71 => 6,  62 => 5,  51 => 3,  42 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -298,10 +504,10 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
     {
         return new Twig_Source("{% extends \"PWMyBundle::layout.html.twig\" %}
 {% block title %}
-    Home
+    Homme
 {% endblock %}
 {% block nav %}
-  <div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">
+ <div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\"> 
         <div class=\"navbar-header\">
             <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">
@@ -309,14 +515,12 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
                 <span class=\"icon-bar\"></span>
                 <span class=\"icon-bar\"></span> 
             </button>
-            <a target=\"_blank\" href=\"#\" class=\"navbar-brand\">KENYLAM GAME</a>
+            <a href=\"{{ path('/group')}}\" class=\"navbar-brand\">KENYLAM GAME</a>
         </div>
         <div class=\"collapse navbar-collapse\">
             <ul class=\"nav navbar-nav\">
-                <li><a href=\"#\">Home</a></li>
-                <li class=\"active\"><a href=\"{{ path('/group') }}\">Mes groupes</a></li>
-                <li class=\"active\"><a href=\"{{ path('/group') }}\">Mes hommes</a></li>
-                <li><a href=\"{{ path('/group', {'all':'true'}) }}\">Tous les groupes</a></li>            
+                <li><a href=\"{{ path('/group')}}\">Home</a></li>
+                <li><a href=\"{{ path('/group')}} class=\"btn btn-info\" role=\"button\" \">Les groupes</a></li>             
              </ul>
             <ul class=\"nav navbar-nav navbar-right\">
                 <li class=\"dropdown\">
@@ -361,52 +565,151 @@ class __TwigTemplate_4da8067b2f7326d47a3149dbb6c9142f9ac3018c6107929bfbcf6c135cd
 </div>
 {% endblock %}
 
-{% block body %}
-    <div class = \"container\">
-        <div class=\"jumbotron\">
-            {{form_start(rechercheForm)}}
-        {{form_widget(rechercheForm)}}
-        {{form_end(rechercheForm)}}
-
-        {{ pseudo }}
-
-        {% if hommes is defined %}
-            <table>
-            <tr> 
-            {% set id = (app.request.attributes.get('idGroupe') ) %}
-            <th><a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'niveau','sens':'desc'})}}\">-</a>
-            Niveau
-                <a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'niveau','sens':'asc'})}}\">+</a>
-            </th> 
-            <th><a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'nom','sens':'desc'})}}\">-</a>
-            Nom
-                <a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'nom','sens':'asc'})}}\">+</a>
-            </th>
-            <th><a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'sexe','sens':'desc'})}}\">-</a>
-            Sexe
-                <a href=\"{{path('/homme',
-            {'idGroupe':id,'ordre':'sexe','sens':'asc'})}}\">+</a>
-            </th>
-            </tr>
-            {% for homme in hommes %}
-                <tr>
-                <th> {{ homme.getNiveau() }} </th>
-                <th> {{ homme.getNom() }}</th>
-                <th> {{ homme.getSexe() }} </th> 
-                </tr>
-            {% endfor %}
-            </table>
-        {% endif %}
+{% block form %}
+<div class=\"row\">
+  <div class=\"col-md-6\">
+    <div class=\"form-horizontal\" style=\"margin-top:75px\">
+        <h2 style=\"margin-left:120px\">Rechercher un Homme</h2>
+      {{form_start(rechercheForm)}}
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Niv Min</label>
+        <div class=\"col-md-4\">
+          {{ form_widget(rechercheForm.nivMin, {'attr': {'class':'form-control'}}) }}
         </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Niv Max</label>
+        <div class=\"col-md-4\">
+          {{ form_widget(rechercheForm.nivMax, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Nom</label>
+        <div class=\"col-md-4\">
+          {{ form_widget(rechercheForm.nom, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Sexe</label>
+        <div class=\"col-md-4\">
+          {{ form_widget(rechercheForm.sexe, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <label  class=\"col-md-3 control-label\">Etat</label>
+        <div class=\"col-md-4\">
+          {{ form_widget(rechercheForm.etat, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class=\"form-group\">
+        <div class=\"col-sm-2\" style=\"margin-left:150px\">
+          {{ form_widget(rechercheForm.save, {'attr': {'class':'btn btn-default'}}) }}
+          {{form_end(rechercheForm)}}
+        </div>
+      </div>
     </div>
-    
-{% endblock %}
+  </div>
+  <div class=\"col-md-6\" style=\"margin-top:50px\">
+    <h2 style=\"margin-left:180px\">Tous mes Hommes</h2>
+    <h3 style=\"margin-left:120px\">Groupe : <strong>{{nomGroupe}}</strong></h3>
+    <h3 style=\"margin-left:120px\">Argent : <strong>{{argent}}</strong> </h3>
+    {% if hommesEtTemps is defined %}
+                <table class=\"table table-striped\">
+                  {% set all = (app.request.attributes.get('all') ) %}
+                <thread>
+                  <tr> 
+                    {% set id = (app.request.attributes.get('idGroupe') ) %}
+                    <th>
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'niveau','sens':'desc'})}}\">-</a>Niveau
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'niveau','sens':'asc'})}}\">+</a>
+                    </th> 
+                    <th>
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'nom','sens':'desc'})}}\">-</a>Nom
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'nom','sens':'asc'})}}\">+</a>
+                    </th>
+                    <th>
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'sexe','sens':'desc'})}}\">-</a>Sexe
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'sexe','sens':'asc'})}}\">+</a>
+                    </th>
+                    <th>
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'etat','sens':'desc'})}}\">-</a>Disponibilité
+                        <a href=\"{{path('/homme',{'idGroupe':id,'ordre':'etat','sens':'asc'})}}\">+</a>
+                    </th>
+                  </tr>
+                </thread>
+                <tbody>
+                    {% for hommesEtTemps in hommesEtTemps %}
+                        <tr>
+                            <td> {{ hommesEtTemps[0].getNiveau() }} </td>
+                            <td> {{ hommesEtTemps[0].getNom() }}</td>
+                            <td> {{ hommesEtTemps[0].getSexe() }} </td>
+                            <td> 
+                                {% if hommesEtTemps[1] <= 0 %} 
+                                    En attente
+                                {% else %}
+                                    Occupé ({{hommesEtTemps[1]}}min)
+                                {% endif %}
+                            </td>  
+                        </tr>
+                    {% endfor %}
+                </tbody>
+               </table>
+              {% endif %}
+              <div class=\"form-horizontal\" style=\"margin-top:75px\">
+                <h2 style=\"margin-left:120px\">Effectuer une Mission</h2>
+                {% if formMission is defined %}
+                  {{form_start(formMission)}}
+                    <div class=\"form-group\">
+                      <label  class=\"col-md-3 control-label\">Homme</label>
+                      <div class=\"col-md-4\">
+                        {{ form_widget(formMission.Homme, {'attr': {'class':'form-control'}}) }}
+                      </div>
+                    </div>
+                    <div class=\"form-group\">
+                      <label  class=\"col-md-3 control-label\">Mission</label>
+                      <div class=\"col-md-4\">
+                        {{ form_widget(formMission.Mission, {'attr': {'class':'form-control'}}) }}
+                      </div>
+                    </div>
+                    <div class=\"form-group\">
+                    <div class=\"col-sm-2\" style=\"margin-left:150px\">
+                      {{ form_widget(formMission.save, {'attr': {'class':'btn btn-default'}}) }}
+                    </div>
+                  </div>
+                  {{form_end(formMission)}}
+                  {% endif %}
+              </div>
+              
+  </div>
+</div>
+<div class=\"panel-group\">
+    <h2 class=\"text-center\">Mission Terminée</h2> 
+    {% if notif is defined %}
+                    {% for n in notif%}
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> {{n.texte}} <br> </div>
+                        </div>
+                        
+                    {% endfor %}
+                {% endif %}
 
-        ", "PWMyBundle:Default:play.html.twig", "C:\\wamp\\www\\WebProj\\src\\PW\\MyBundle/Resources/views/Default/play.html.twig");
+                {% if notifNonVu is defined %}
+                    {% for n in notifNonVu%}
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> (!){{n.texte}}(!) <br> </div>
+                        </div>   
+                    {% endfor %}
+                {% endif %}
+
+                {% if notifVu is defined %}
+                    {% for n in notifVu%}
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-body\"> {{n.texte}} <br> </div>
+                        </div> 
+                        
+                    {% endfor %}
+                {% endif %}
+</div>
+{% endblock %}", "PWMyBundle:Default:play.html.twig", "C:\\wamp\\www\\WebProj\\src\\PW\\MyBundle/Resources/views/Default/play.html.twig");
     }
 }

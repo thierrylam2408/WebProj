@@ -24,11 +24,11 @@ class HommeController extends Controller{
     private $repJoueur;
     private $em;
     private $coutRecolter = 0;
-    private $tempsRecolter = 15;
+    private $tempsRecolter = 5;
     private $coutEntrainer = 500;
-    private $tempsEntrainer = 30;
+    private $tempsEntrainer = 7;
     private $coutRecruter = 1000;
-    private $tempsRecruter = 45;
+    private $tempsRecruter = 10;
     
     /**
      * @Route("/homme/{idGroupe}/{ordre}/{sens}",

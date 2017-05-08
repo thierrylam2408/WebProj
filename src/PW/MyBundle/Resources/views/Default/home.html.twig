@@ -11,14 +11,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a target="_blank" href="#" class="navbar-brand">KENYLAM GAME</a>
+            <a href="{{ path('/group')}}" class="navbar-brand">KENYLAM GAME</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li class="active"><a href="{{ path('/group') }}">Mes groupes</a></li>
-                <li><a href="{{ path('/group', {'all':'true'}) }}">Tous les groupes</a></li>
-                <li><a href="{{ path('/statistique') }}">Statistique</a></li>            
+                <li><a href="{{ path('/group')}}">Home</a></li>
+                <li><a href="{{ path('/group')}} class="btn btn-info" role="button" ">Les groupes</a></li>
+                <li><a href="{{ path('/statistique') }}">Statistique</a></li>           
              </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -46,15 +45,9 @@
                             </div>
                         </li>
                         <li class="divider navbar-login-session-bg"></li>
-                         <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                        <li><a href="{{ path('/statistique')}}">Statistique<span class="glyphicon glyphicon-stats pull-right"></span></a></li>
                         <li class="divider"></li>
-                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ url('/deconnexion') }}">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                        <li><a href="{{ url('/deconnexion') }}">Déconnexion<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -63,66 +56,134 @@
 </div>
 {% endblock %}
 
-{% block body %}
-    <div class = "container">
-        <div class="jumbotron">
-            {{form_start(rechercheForm)}}
-            {{form_widget(rechercheForm)}}
-            {{form_end(rechercheForm)}}
-
-            {% if groupes is defined %}
-                <table>
-                {% set all = (app.request.attributes.get('all') ) %}
-                <tr> 
-                <th><a href="{{ path('/group', 
-                {'ordre':'exp','sens':'desc','all':all}) }}">-</a>
-                    Experience
-                    <a href="{{ path('/group', 
-                    {'ordre':'exp', 'sens':'asc','all':all}) }}">+</a>
-                </th> 
-                <th><a href="{{ path('/group', 
-                {'ordre':'nom', 'sens':'desc','all':all}) }}">-</a>
-                Nom
-                <a href="{{ path('/group', 
-                {'ordre':'nom', 'sens':'asc','all':all}) }}">+</a>
-                </th>
-                <th><a href="{{ path('/group', 
-                {'ordre':'argent', 'sens':'desc','all':all}) }}">-</a>
-                Argent
-                <a href="{{ path('/group', 
-                {'ordre':'argent', 'sens':'asc','all':all}) }}">+</a>
-                </th>
-                <th><a href="{{ path('/group', 
-                {'ordre':'nbh', 'sens':'desc','all':all}) }}">-</a>
-                Homme
-                <a href="{{ path('/group', 
-                {'ordre':'nbh', 'sens':'asc','all':all}) }}">+</a>
-                </th>
-                </tr>
-            {% for couple in groupes %}
-                <tr>
-                <th> {{ couple[0] }} </th>
-                <th><a href="{{ path('/homme', {'idGroupe':couple[1].getId() }) }}"> 
-                    {{ couple[1].getNomGroupe()}} </a></th>
-                <th> {{ couple[1].getArgent()}} </th> 
-                <th> {{ couple[2]}} </th>
-                {% if supprimable is defined and supprimable == true %}
-                <th>
-                <a href="{{ path('/supprimerGrp', {'idGroupe':couple[1].getId() }) }}">
-                Supprimer</a>
-                </th>
-                {% endif %}
-                </tr>
-            {% endfor %}
-            </table>
-            {% endif %}
-
-            {% if supprimable is defined and supprimable == true %}
-            {{form_start(form)}}
-            {{form_widget(form)}}
-            {{form_end(form)}}
-            {% endif %}
+{% block form %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-horizontal" style="margin-top:75px">
+      {{form_start(rechercheForm)}}
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Exp Min</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.expMin, {'attr': {'class':'form-control'}}) }}
         </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Exp Max</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.expMax, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Nom</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.nom, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Argent Min</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.argMin, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Argent Max</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.argMax, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Homme Min</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.homMin, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-md-3 control-label">Homme Max</label>
+        <div class="col-md-4">
+          {{ form_widget(rechercheForm.homMax, {'attr': {'class':'form-control'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-2" style="margin-left:150px">
+          {{ form_widget(rechercheForm.save, {'attr': {'class':'btn btn-default'}}) }}
+          {{form_end(rechercheForm)}}
+        </div>
+      </div>
     </div>
-    
+  </div>
+  <div class="col-md-6" style="margin-top:75px">
+    <h2 style="margin-left:180px">Tous les groupes</h2>
+    {% if groupes is defined %}
+                <table class="table table-striped">
+                  {% set all = (app.request.attributes.get('all') ) %}
+                <thread>
+                  <tr> 
+                    <th>
+                      <a href="{{ path('/group',{'ordre':'exp','sens':'desc','all':all}) }}">-</a>Experience
+                      <a href="{{ path('/group',{'ordre':'exp', 'sens':'asc','all':all}) }}">+</a>
+                    </th> 
+                    <th>
+                      <a href="{{ path('/group',{'ordre':'nom', 'sens':'desc','all':all}) }}">-</a>Nom
+                      <a href="{{ path('/group',{'ordre':'nom', 'sens':'asc','all':all}) }}">+</a>
+                    </th>
+                    <th>
+                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'desc','all':all}) }}">-</a>Argent
+                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'asc','all':all}) }}">+</a>
+                    </th>
+                    <th>
+                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'desc','all':all}) }}">-</a>Homme
+                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'asc','all':all}) }}">+</a>
+                    </th>
+                    <th>
+          
+                    </th>
+                  </tr>
+                </thread>
+                <tbody>
+                  {% for couple in groupes %}
+                    <tr>
+                      <td> 
+                        {{ couple[0] }} 
+                      </td>
+                      <td>
+                        <a href="{{ path('/homme', {'idGroupe':couple[1].getId() }) }}"> 
+                        {{ couple[1].getNomGroupe()}} </a>
+                      </td>
+                      <td> 
+                        {{ couple[1].getArgent()}} 
+                      </td> 
+                      <td> 
+                        {{ couple[2]}} 
+                      </td>
+                      {% if supprimable is defined and supprimable == true %}
+                        <td>
+                          <a href="{{ path('/supprimerGrp', {'idGroupe':couple[1].getId() }) }}">
+                          Supprimer</a>
+                        </td>
+                      {% endif %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+               </table>
+              {% endif %}
+              <div class="form-horizontal" style="margin-top:75px">
+                <h2 style="margin-left:120px">Créer un groupe</h2>
+                {% if supprimable is defined and supprimable == true %}
+                  {{form_start(form)}}
+                    <div class="form-group">
+                      <label  class="col-md-3 control-label">Nom</label>
+                      <div class="col-md-4">
+                        {{ form_widget(form.nom, {'attr': {'class':'form-control'}}) }}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-sm-2" style="margin-left:150px">
+                      {{ form_widget(form.save, {'attr': {'class':'btn btn-default'}}) }}
+                    </div>
+                  </div>
+                  {{form_end(form)}}
+                  {% endif %}
+              </div>
+  </div>
+</div>
 {% endblock %}

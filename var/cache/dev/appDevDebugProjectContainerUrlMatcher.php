@@ -119,6 +119,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'PW\\MyBundle\\Controller\\DefaultController::deconnexionAction',  '_route' => '/deconnexion',);
         }
 
+        // /about
+        if ($pathinfo === '/about') {
+            return array (  '_controller' => 'PW\\MyBundle\\Controller\\DefaultController::aboutAction',  '_route' => '/about',);
+        }
+
+        // /statistique
+        if ($pathinfo === '/statistique') {
+            return array (  '_controller' => 'PW\\MyBundle\\Controller\\DefaultController::statistiqueAction',  '_route' => '/statistique',);
+        }
+
         // /group
         if (0 === strpos($pathinfo, '/group') && preg_match('#^/group(?:/(?P<ordre>exp|id|argent|nom|nbh)(?:/(?P<sens>asc|desc)(?:/(?P<all>true|false))?)?)?$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => '/group')), array (  'ordre' => 'id',  'sens' => 'asc',  'all' => 'false',  '_controller' => 'PW\\MyBundle\\Controller\\GroupController::groupAction',));
@@ -135,8 +145,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // /homme
-        if (0 === strpos($pathinfo, '/homme') && preg_match('#^/homme/(?P<idGroupe>\\d+)(?:/(?P<ordre>nom|niveau|sexe)(?:/(?P<sens>asc|desc))?)?$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/homme') && preg_match('#^/homme/(?P<idGroupe>\\d+)(?:/(?P<ordre>nom|niveau|sexe|etat)(?:/(?P<sens>asc|desc))?)?$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => '/homme')), array (  'ordre' => 'niveau',  'sens' => 'asc',  '_controller' => 'PW\\MyBundle\\Controller\\HommeController::groupAction',));
+        }
+
+        // /mission
+        if (0 === strpos($pathinfo, '/mission') && preg_match('#^/mission/(?P<idGroupe>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '/mission')), array (  '_controller' => 'PW\\MyBundle\\Controller\\HommeController::missionAction',));
         }
 
         // homepage
