@@ -276,6 +276,7 @@ class GroupController extends Controller{
      */
 	public function createGroupAction(Request $request){
     	$this->init($request);
+        $this->session->set('filtre', array());
     	if(isset($request->request->all()['form'])){
     		$this->createGroup($request);
     	}

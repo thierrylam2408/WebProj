@@ -171,10 +171,11 @@ class DefaultController extends Controller{
     		"nbHomme"=>$this->getNombreHomme(),
     		"niveauMax"=>$this->getNiveauMax(),
     		"niveauMoyen"=>$this->getNiveauMoyen(),
-    		"pourcentageH"=>$this->pourcentageHF("H"),
-    		"pourcentageF"=>$this->pourcentageHF("F")
+    		"pourcentageH"=>$this->pourcentageHF("M"),
+    		"pourcentageF"=>$this->pourcentageHF("F"),
+    		"Missions"=>$this->getMissionAccompli(),
+    		"pourcentageLO"=>$this->getLibreOccupe()
     		);
-    	var_dump($array);
         return $this->render('PWMyBundle:Default:statistique.html.twig', $array);
     }
 
@@ -257,7 +258,7 @@ class DefaultController extends Controller{
     	for ($i=0; $i < count($hommes); $i++) { 
     		$nb += $hommes[$i]->getNiveau();
     	}
-    	return $nb / count($hommes);
+    	return round($nb / count($hommes), 1);
     }
 
 
@@ -283,6 +284,26 @@ class DefaultController extends Controller{
     				$groupe[$i],$this->nbHommeGroup($groupe[$i]));
     	}
     	return $result;
+    }
+
+    public function getMissionAccompli(){
+    	return count($this->repoNotif->findAll());
+    }
+
+    //couple (pourcentage Libre, pourcentage Occupé)
+    public function getLibreOccupe(){
+    	$hommes = $this->repoHomme->findAll();
+    	$libre=0; $occuper=0;
+    	for ($i=0; $i < count($hommes); $i++) { 
+    		if($this->estOccuper($hommes[$i]->getId()))
+    			$occuper++ ;
+    		else $libre ++;
+    	}
+    	return array(round(($libre / count($hommes)*100)), round(($occuper / count($hommes)*100)));
+    } 
+
+    public function estOccuper($idHomme){
+        return $this->repoMission->findOneBy(array('idHomme'=>$idHomme, 'exec'=>false))!=NULL;
     }
 
     public function getExpGroup(Groupe $groupe){
