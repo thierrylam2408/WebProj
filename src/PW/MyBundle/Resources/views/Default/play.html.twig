@@ -15,7 +15,8 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ path('/group')}}">Home</a></li>
+                <li><a href="{{ path('/group')}}">Mes groupes</a></li>
+                <li><a href="{{ path('/group', {'all':'true'})}}">Ensemble des groupes</a></li>
                 <li><a href="{{ path('/statistique') }}">Statistique</a></li>             
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -59,7 +60,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-horizontal" style="margin-top:75px">
-        <h2 style="margin-left:120px">Rechercher un Homme</h2>
+        <h2 style="margin-left:120px">Rechercher un personnage</h2>
       {{form_start(rechercheForm)}}
       <div class="form-group">
         <label  class="col-md-3 control-label">Niv Min</label>
@@ -100,9 +101,9 @@
     </div>
   </div>
   <div class="col-md-6" style="margin-top:50px">
-    <h2 style="margin-left:180px">Tous mes Hommes</h2>
     <h3 style="margin-left:120px">Groupe : <strong>{{nomGroupe}}</strong></h3>
-    <h3 style="margin-left:120px">Argent : <strong>{{argent}}</strong> </h3>
+    <h3 style="margin-left:120px">Argent : <strong>{{argent}}</strong>$ </h3>
+    <h3 style="margin-left:120px">Liste des personnages</h2>
     {% if hommesEtTemps is defined %}
                 <table class="table table-striped">
                   {% set all = (app.request.attributes.get('all') ) %}
@@ -186,7 +187,10 @@
                 {% if notifNonVu is defined %}
                     {% for n in notifNonVu%}
                         <div class="panel panel-default">
-                            <div class="panel-body"> (!){{n.texte}}(!) <br> </div>
+                            <div class="panel-body"> 
+                            <span class="glyphicon glyphicon-asterisk"></span>
+                            {{n.texte}} <span class="glyphicon glyphicon-asterisk"></span>
+                            <br> </div>
                         </div>   
                     {% endfor %}
                 {% endif %}

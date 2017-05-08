@@ -15,8 +15,9 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ path('/group')}}">Home</a></li>
-                <li><a href="{{ path('/statistique') }}">Statistique</a></li>           
+                <li><a href="{{ path('/group')}}">Mes groupes</a></li>
+                <li><a href="{{ path('/group', {'all':'true'})}}">Ensemble des groupes</a></li>
+                <li><a href="{{ path('/statistique') }}">Statistique</a></li>          
              </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -58,50 +59,50 @@
 {% block form %}
 <div class="row" style="margin-top:70px">
     <h2 class="text-center">Statistiques</h2>
+          <div class="panel panel-default">
+            <div class="panel-body" style="text-align: center"><strong>{{nbJoueur}}</strong> Joueurs se sont inscrits sur notre jeu</div>
+          </div>
     <div class="col-md-6">
         <div class="panel-group" >
           <div class="panel panel-default">
-            <div class="panel-body">nombre joueur <strong>{{nbJoueur}}</strong></div>
+            <div class="panel-body"><strong>{{nbGroupe}}</strong> Groupes créés</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">nombre groupe <strong></strong>{{nbGroupe}}</div>
+            <div class="panel-body"><strong>{{expMax[0]}}</strong> est le groupe avec le plus d'expériences: <strong>{{expMax[1]}}</strong></div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">Le groupe plus haut exp <strong>{{expMax[0]}} avec {{expMax[1]}}</strong></div>
+            <div class="panel-body"><strong>{{hommeMax[0]}}</strong> est le groupe avec le plus de personnages: <strong>{{hommeMax[1]}}</strong></div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">Le groupe plus d'homme <strong>{{hommeMax[0]}} avec {{hommeMax[1]}}</strong></div>
+            <div class="panel-body"><strong>{{argMax[0]}}</strong> est le groupe avec le plus d'argent: <strong>{{argMax[1]}}$</strong></div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">Le groupe plus argent <strong>{{argMax[0]}} avec {{argMax[1]}}$</strong></div>
+            <div class="panel-body"><strong>{{expMoyen}}</strong> est la moyenne d'experience par groupe</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">exp moyen <strong>{{expMoyen}}</strong></div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">argent moyen <strong>{{argMoyen}}</strong></div>
+            <div class="panel-body"><strong>{{argMoyen}}$</strong> est la moyenne d'argent par groupe</div>
           </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="panel-group" >
           <div class="panel panel-default">
-            <div class="panel-body">Perso plus fort <strong>{{niveauMax[0]}} niveau {{niveauMax[1]}}</strong></div>
+            <div class="panel-body"><strong>{{niveauMax[0]}}</strong> est le personnage le plus fort avec <strong>{{niveauMax[1]}}</strong> de niveau</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">Niveau moyen <strong></strong>{{niveauMoyen}}</div>
+            <div class="panel-body"><strong>{{niveauMoyen}}</strong> est le niveau moyen des personnages</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body"><strong>{{pourcentageH}}%</strong> d'homme <strong>{{pourcentageF}}%</strong> de femme</div>
+            <div class="panel-body"><strong>{{pourcentageH}}%</strong> sont des hommes, <strong>{{pourcentageF}}%</strong> sont des femmes</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body">Missions effectuées <strong>{{Missions}}</strong></div>
+            <div class="panel-body"><strong>{{Missions}}</strong> est le nombre de missions effectuées</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body"><strong>{{pourcentageLO[0]}}%</strong> de personne libre</div>
+            <div class="panel-body"><strong>{{pourcentageLO[0]}}%</strong> des personnages sont en attente d'une mission</div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-body"><strong>{{pourcentageLO[1]}}%</strong> de personne occupé</div>
+            <div class="panel-body"><strong>{{pourcentageLO[1]}}%</strong> des personnages sont actuellement en mission</div>
           </div>
         </div>
     </div>

@@ -223,7 +223,7 @@ class DefaultController extends Controller{
     	for ($i=0; $i < count($groupes); $i++) { 
     		$nb += $groupes[$i][0];
     	}
-    	return $nb / count($groupes);   	
+    	return round($nb / count($groupes));   	
     }
 
     public function getArgMoyen(Array $groupes){
@@ -231,7 +231,7 @@ class DefaultController extends Controller{
     	for ($i=0; $i < count($groupes); $i++) { 
     		$nb += $groupes[$i][1]->getArgent();
     	}
-    	return $nb / count($groupes);
+    	return round($nb / count($groupes));
     }
 
     public function getNombreHomme(){
