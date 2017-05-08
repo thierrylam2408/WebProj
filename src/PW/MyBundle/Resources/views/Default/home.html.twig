@@ -16,7 +16,6 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ path('/group')}}">Home</a></li>
-                <li><a href="{{ path('/group')}} class="btn btn-info" role="button" ">Les groupes</a></li>
                 <li><a href="{{ path('/statistique') }}">Statistique</a></li>           
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -119,20 +118,26 @@
                 <thread>
                   <tr> 
                     <th>
-                      <a href="{{ path('/group',{'ordre':'exp','sens':'desc','all':all}) }}">-</a>Experience
-                      <a href="{{ path('/group',{'ordre':'exp', 'sens':'asc','all':all}) }}">+</a>
+                      <a href="{{ path('/group',{'ordre':'exp','sens':'desc','all':all}) }}">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                      </a>Experience
+                      <a href="{{ path('/group',{'ordre':'exp', 'sens':'asc','all':all}) }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </th> 
                     <th>
-                      <a href="{{ path('/group',{'ordre':'nom', 'sens':'desc','all':all}) }}">-</a>Nom
-                      <a href="{{ path('/group',{'ordre':'nom', 'sens':'asc','all':all}) }}">+</a>
+                        <a href="{{ path('/group',{'ordre':'nom', 'sens':'desc','all':all}) }}">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                        </a>Nom
+                      <a href="{{ path('/group',{'ordre':'nom', 'sens':'asc','all':all}) }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </th>
                     <th>
-                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'desc','all':all}) }}">-</a>Argent
-                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'asc','all':all}) }}">+</a>
+                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'desc','all':all}) }}">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                        </a>Argent
+                      <a href="{{ path('/group',{'ordre':'argent', 'sens':'asc','all':all}) }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </th>
                     <th>
-                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'desc','all':all}) }}">-</a>Homme
-                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'asc','all':all}) }}">+</a>
+                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'desc','all':all}) }}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>Homme
+                      <a href="{{ path('/group',{'ordre':'nbh', 'sens':'asc','all':all}) }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </th>
                     <th>
           

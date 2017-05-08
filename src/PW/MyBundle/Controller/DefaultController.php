@@ -109,11 +109,11 @@ class DefaultController extends Controller{
         $dataMdp = $this->hydrateChamps($champs, array("mdp"));
         $form = $this->createFormBuilder()
             ->add('pseudo', TextType::class, array('data'=> $dataPseudo, 
-                'attr'=>array('maxlength'=>10)))           
+                'attr'=>array('maxlength'=>10,'placeholder' => 'Pseudo')))           
             ->add('login', TextType::class, array('data'=> $dataLogin,
-                'attr'=>array('maxlength'=>10)))
+                'attr'=>array('maxlength'=>10,'placeholder' => 'Login')))
             ->add('mdp', PasswordType::class, array('label' => 'Mot de passe',
-                'attr'=>array('maxlength'=>10)))
+                'attr'=>array('maxlength'=>10,'placeholder' => 'Mot de passe')))
             ->add('avatar', FileType::class, array('required'=>false))
             ->add('save', SubmitType::class, array('label' => 'Inscription'))
             ->getForm();
@@ -125,8 +125,8 @@ class DefaultController extends Controller{
         $dataLogin = $this->hydrateChamps($champs, array("login"));
         $dataMdp = $this->hydrateChamps($champs, array("mdp"));
         $form = $this->createFormBuilder()
-            ->add('login', TextType::class, array('data'=>$dataLogin))
-            ->add('mdp', PasswordType::class, array('label' => 'Mot de passe', 'data'=>$dataMdp))
+            ->add('login', TextType::class, array('data'=>$dataLogin,'attr' => array('placeholder' => 'Username',)))
+            ->add('mdp', PasswordType::class, array('label' => 'Mot de passe', 'data'=>$dataMdp,'attr' => array('placeholder' => 'Mot de passe',)))
             ->add('save', SubmitType::class, array('label' => 'Connection'))
             ->getForm();
         return $form;
